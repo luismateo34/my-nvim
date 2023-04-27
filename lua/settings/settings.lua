@@ -4,7 +4,6 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.mouse = "a"
 vim.opt.numberwidth  =  1
-vim.opt.clipboard = "unnamed"
 vim.opt.syntax = "on"
 vim.opt.showcmd = true
 vim.opt.autoindent = true

@@ -5,6 +5,7 @@ cnoreabbrev collap NvimTreeCollapse
 ]])
 
 vim.cmd([[
+set splitright
 function! OpenTerminal()
   " move to right most buffer
   execute "normal \<C-l>"
