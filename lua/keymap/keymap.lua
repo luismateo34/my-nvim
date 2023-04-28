@@ -54,10 +54,6 @@ map("n", "<leader>af", ":ALEFix eslint<CR>", { noremap = true })
 map("n", "<leader>es", ":!eslint %<CR>", { noremap = true })
 --stylelint
 map("n", "<leader>sl", ":ALEFix stylelint<CR>", { noremap = true })
---gotodefinition
-map("n", "<leader>df", ":ALEGoToDefinition<CR>", { noremap = true })
--- lsp nvim keymap
-map("n", "<leader>vf", ":vim.lsp.buf.definition()", {})
 --telescope
 local builtin = require('telescope.builtin')
 map("n", "<leader>ff", builtin.find_files, { noremap = true })

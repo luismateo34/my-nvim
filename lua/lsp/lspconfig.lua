@@ -25,15 +25,43 @@ local on_attach = function(client, bufnr)
 	--Enable completion triggered by <c-x><c-o>
 	--local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 	--buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+	-- Global mappings.
+	-- See `:help vim.diagnostic.*` for documentation on any of the below functions
+	vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
+	vim.keymap.set('n', '<space>dp', vim.diagnostic.goto_prev)
+	vim.keymap.set('n', '<space>gn', vim.diagnostic.goto_next)
+	vim.keymap.set('n', '<space>ds', vim.diagnostic.setloclist)
 
-	-- Mappings.
-	local opts = { noremap = true, silent = true }
+	-- Use LspAttach autocommand to only map the following keys
+	-- after the language server attaches to the current buffer
+	vim.api.nvim_create_autocmd('LspAttach', {
+		group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+		callback = function(ev)
+			-- Enable completion triggered by <c-x><c-o>
+			vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
-	-- See `:help vim.lsp.*` for documentation on any of the below functions
-	buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-	--buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-	buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-	--buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+			-- Buffer local mappings.
+			-- See `:help vim.lsp.*` for documentation on any of the below functions
+			local opts = { buffer = ev.buf }
+			vim.keymap.set('n', '<space>dc', vim.lsp.buf.declaration, opts)
+			vim.keymap.set('n', '<space>df', vim.lsp.buf.definition, opts)
+			vim.keymap.set('n', '<space>ho', vim.lsp.buf.hover, opts)
+			vim.keymap.set('n', 'imp', vim.lsp.buf.implementation, opts)
+			vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+			vim.keymap.set('n', '<space>aw', vim.lsp.buf.add_workspace_folder, opts)
+			vim.keymap.set('n', '<space>rw', vim.lsp.buf.remove_workspace_folder, opts)
+			vim.keymap.set('n', '<space>fw', function()
+				print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+			end, opts)
+			vim.keymap.set('n', '<space>td', vim.lsp.buf.type_definition, opts)
+			vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
+			vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
+			vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+			vim.keymap.set('n', '<space>ft', function()
+				vim.lsp.buf.format { async = true }
+			end, opts)
+		end,
+	})
 end
 
 protocol.CompletionItemKind = {
@@ -120,6 +148,40 @@ nvim_lsp.pyright.setup {
 	on_attach = on_attach,
 	capabilities = capabilities
 }
+nvim_lsp.jsonls.setup {
+	on_attach = on_attach,
+	capabilities = capabilities
+}
+nvim_lsp.golangci_lint_ls.setup {
+	on_attach = on_attach,
+	capabilities = capabilities
+}
+
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+	vim.lsp.diagnostic.on_publish_diagnostics, {
+	underline = true,
+	update_in_insert = false,
+	virtual_text = { spacing = 4, prefix = "●" },
+	severity_sort = true,
+}
+)
+
+-- Diagnostic symbols in the sign column (gutter)
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+	local hl = "DiagnosticSign" .. type
+	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+end
+
+vim.diagnostic.config({
+	virtual_text = {
+		prefix = '●'
+	},
+	update_in_insert = true,
+	float = {
+		source = "always", -- Or "if_many"
+	},
+})
 nvim_lsp.jsonls.setup {
 	on_attach = on_attach,
 	capabilities = capabilities
