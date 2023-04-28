@@ -9,6 +9,18 @@ return {
 				},
 			},
 		},
+                 {
+                         'glepnir/lspsaga.nvim', -- LSP UIs
+                               config = function()
+                                    require("lspsaga").setup({})
+                                end,
+                              requires = {
+                                           {"kyazdani42/nvim-web-devicons"},
+                                           {"nvim-treesitter/nvim-treesitter"},
+
+                                        },
+                 },
+
 		"onsails/lspkind-nvim", -- vscode-like pictograms
 		"hrsh7th/cmp-buffer", -- nvim-cmp source for buffer words
 		"hrsh7th/cmp-nvim-lsp", -- nvim-cmp source for neovim"s built-in LSP
