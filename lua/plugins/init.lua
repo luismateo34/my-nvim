@@ -1,5 +1,6 @@
 return {
   'norcalli/nvim-colorizer.lua',
+  'KabbAmine/vCoolor.vim',
   'dense-analysis/ale', -- use with linter, formater and lsp
 --Themes
   'dracula/vim',
