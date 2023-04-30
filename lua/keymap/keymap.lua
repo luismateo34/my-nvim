@@ -39,10 +39,6 @@ map("n", "<leader>j", ":m .+1<CR>==", { noremap = true })
 --faster scrolling
 map("n", "<C-j>", ":10<C-e>", { noremap = true })
 map("n", "<C-k>", ":10<C-y>", { noremap = true })
---git
-map("n", "<leader>G", ":G<CR>", { noremap = true })
-map("n", "<leader>gp", ":Gpush<CR>", { noremap = true })
-map("n", "<leader>gl", ":Gpull<CR>", { noremap = true })
 --run current file with node
 map("n", "<leader>x", ":!node %<cr>", { noremap = true })
 --prettier
