@@ -4,6 +4,7 @@ let g:ale_fixers = {
 \  'python': ['flake8'],
 \  'go': ['golint'],
 \  'sql': ['sql-lint'],
+\  'css': ['stylelint'],
 \  'javascript': ['eslint'],
 \  'typescript': ['eslint'],
 \  'jsx': ['eslint'],

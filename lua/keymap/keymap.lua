@@ -46,8 +46,6 @@ map("n", "<leader>p", ":ALEFix prettier<CR>", { noremap = true })
 --lint
 --eslint
 map("n", "<leader>af", ":ALEFix eslint<CR>", { noremap = true })
---run current file with eslint
-map("n", "<leader>es", ":!eslint %<CR>", { noremap = true })
 --stylelint
 map("n", "<leader>sl", ":ALEFix stylelint<CR>", { noremap = true })
 --telescope
