@@ -26,8 +26,13 @@ return {
 		"hrsh7th/cmp-nvim-lsp", -- nvim-cmp source for neovim"s built-in LSP
 		"hrsh7th/nvim-cmp", -- Completion
 		"neovim/nvim-lspconfig", -- LSP
-		"jose-elias-alvarez/null-ls.nvim", --  Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
-
+                 {
+                "jose-elias-alvarez/null-ls.nvim",
+                 config = function()
+                 require("null-ls").setup()
+                 end,
+                  requires = { "nvim-lua/plenary.nvim" },
+                                 }, 
 		"L3MON4D3/LuaSnip",
 		"williamboman/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim"

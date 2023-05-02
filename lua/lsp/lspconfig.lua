@@ -102,7 +102,15 @@ nvim_lsp.tsserver.setup {
 	capabilities = capabilities
 }
 
-
+--nvim_lsp.eslint.setup({
+--- ...
+--on_attach = function(client, bufnr)
+--vim.api.nvim_create_autocmd("BufWritePre", {
+--buffer = bufnr,
+--command = "EslintFixAll",
+--})
+--end,
+--})
 nvim_lsp.lua_ls.setup {
 	capabilities = capabilities,
 	on_attach = function(client, bufnr)

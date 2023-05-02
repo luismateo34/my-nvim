@@ -1,4 +1,3 @@
-require('settings.ale')
 require('settings.settings')
 require 'colorizer'.setup()
 require'nvim-treesitter.configs'.setup {
