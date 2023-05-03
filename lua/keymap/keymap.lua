@@ -42,12 +42,12 @@ map("n", "<C-k>", ":10<C-y>", { noremap = true })
 --run current file with node
 map("n", "<leader>x", ":!node %<cr>", { noremap = true })
 --prettier
-map("n", "<leader>p", ":ALEFix prettier<CR>", { noremap = true })
+map("n", "<leader>p", ":Prettier<CR>", { noremap = true })
 --lint
 --eslint
-map("n", "<leader>af", ":ALEFix eslint<CR>", { noremap = true })
+map("n", "<leader>af", ":!eslint<CR>", { noremap = true })
 --stylelint
-map("n", "<leader>sl", ":ALEFix stylelint<CR>", { noremap = true })
+map("n", "<leader>sl", ":!stylelint<CR>", { noremap = true })
 --telescope
 local builtin = require('telescope.builtin')
 map("n", "<leader>ff", builtin.find_files, { noremap = true })
