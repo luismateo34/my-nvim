@@ -1,6 +1,6 @@
 local map = vim.keymap.set
 --speed key
-vim.cmd('imap zx <ESC>')
+vim.cmd("imap zx <ESC>")
 map("n", "<leader>w", ":w<CR>", { noremap = true })
 map("n", "<leader>q", ":q<CR>", { noremap = true })
 map("n", "<Leader>Q", ":q!<CR>", { noremap = true })
@@ -43,13 +43,14 @@ map("n", "<C-k>", ":10<C-y>", { noremap = true })
 map("n", "<leader>x", ":!node %<cr>", { noremap = true })
 --prettier
 map("n", "<leader>p", ":Prettier<CR>", { noremap = true })
---lint
+--linting
+map("n", "<leader>ft", ":lua vim.lsp.buf.format()<CR>", { noremap = true })
 --eslint
 map("n", "<leader>af", ":!eslint<CR>", { noremap = true })
 --stylelint
 map("n", "<leader>sl", ":!stylelint<CR>", { noremap = true })
 --telescope
-local builtin = require('telescope.builtin')
+local builtin = require("telescope.builtin")
 map("n", "<leader>ff", builtin.find_files, { noremap = true })
 map("n", "<leader>ls", builtin.lsp_workspace_symbols, { noremap = true })
 map("n", "<leader>fg", builtin.live_grep, { noremap = true })
