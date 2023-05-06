@@ -11,7 +11,7 @@ return {
 				}),
 				nls.builtins.diagnostics.flake8,
 
-				-- null_ls.builtins.diagnostics.eslint_d.with({
+				-- nls.builtins.diagnostics.eslint_d.with({
 				-- ignore prettier warnings from eslint-plugin-prettier
 				--installl eslint_d in local mode
 				-- filter = function(diagnostic)
