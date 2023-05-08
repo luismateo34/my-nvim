@@ -10,14 +10,12 @@ return {
 					filetypes = { "lua" },
 				}),
 				nls.builtins.diagnostics.flake8,
-
-				-- nls.builtins.diagnostics.eslint_d.with({
-				-- ignore prettier warnings from eslint-plugin-prettier
-				--installl eslint_d in local mode
-				-- filter = function(diagnostic)
-				--   return diagnostic.code ~= "prettier/prettier"
-				-- end,
-				-- })
+				nls.builtins.diagnostics.eslint.with({
+					-- ignore prettier warnings from eslint-plugin-prettier
+					filter = function(diagnostic)
+						return diagnostic.code ~= "prettier/prettier"
+					end,
+				}),
 			},
 		}
 	end,
