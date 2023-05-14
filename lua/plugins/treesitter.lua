@@ -1,52 +1,60 @@
 return {
-  "nvim-treesitter/nvim-treesitter",
-  build = ":TSUpdate",
-  dependencies = {
-    "nvim-treesitter/nvim-treesitter-refactor",
-  },
-  config = function()
-    require("nvim-treesitter.configs").setup {
-      ensure_installed = {
-        "bash",
-        "css",
-        "go",
-        "html",
-        "javascript",
-        "json",
-        "lua",
-        "markdown",
-        "markdown_inline",
-        "rust",
-        "typescript",
-	"tsx",
-        "vim",
-        "yaml",
-      },
-      highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = false,
-      },
-      indent = {
-        enable = true,
-      },
-      incremental_selection = {
-        enable = false,
-        keymaps = {
-          init_selection = "gnn",
-          node_incremental = "grn",
-          scope_incremental = "grc",
-          node_decremental = "grm",
-        },
-      },
-      refactor = {
-        highlight_definitions = { enable = true },
-        smart_rename = {
-          enable = false,
-          keymaps = {
-            smart_rename = "trr",
-          },
-        },
-      },
-    }
-  end,
+	"nvim-treesitter/nvim-treesitter",
+	build = ":TSUpdate",
+	dependencies = {
+		"nvim-treesitter/nvim-treesitter-refactor",
+		"HiPhish/nvim-ts-rainbow2",
+	},
+	config = function()
+		require("nvim-treesitter.configs").setup({
+			ensure_installed = {
+				"bash",
+				"css",
+				"go",
+				"html",
+				"javascript",
+				"json",
+				"lua",
+				"markdown",
+				"markdown_inline",
+				"rust",
+				"typescript",
+				"tsx",
+				"vim",
+				"yaml",
+			},
+			highlight = {
+				enable = true,
+				additional_vim_regex_highlighting = true,
+			},
+			indent = {
+				enable = true,
+			},
+			rainbow = {
+				enable = true,
+				-- Which query to use for finding delimiters
+				query = "rainbow-parens",
+				-- Highlight the entire buffer all at once
+				strategy = require("ts-rainbow").strategy.global,
+			},
+			incremental_selection = {
+				enable = false,
+				keymaps = {
+					init_selection = "gnn",
+					node_incremental = "grn",
+					scope_incremental = "grc",
+					node_decremental = "grm",
+				},
+			},
+			refactor = {
+				highlight_definitions = { enable = true },
+				smart_rename = {
+					enable = false,
+					keymaps = {
+						smart_rename = "trr",
+					},
+				},
+			},
+		})
+	end,
 }

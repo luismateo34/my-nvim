@@ -4,7 +4,6 @@ return {
   'KabbAmine/vCoolor.vim',
 --Themes
   'dracula/vim',
-  'mhartington/oceanic-next',
 --lorem ipsum generator
   "derektata/lorem.nvim",
 --snippets
