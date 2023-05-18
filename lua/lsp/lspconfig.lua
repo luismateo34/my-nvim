@@ -21,23 +21,7 @@ end
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
-	local function buf_set_keymap(...)
-		vim.api.nvim_buf_set_keymap(bufnr, ...)
-	end
-
-	--Enable completion triggered by <c-x><c-o>
-	--local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-	--buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-	-- Global mappings.
-	-- See `:help vim.diagnostic.*` for documentation on any of the below functions
-	vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
-	vim.keymap.set("n", "<space>dp", vim.diagnostic.goto_prev)
-	vim.keymap.set("n", "<space>gn", vim.diagnostic.goto_next)
-	vim.keymap.set("n", "<space>ds", vim.diagnostic.setloclist)
-
-	-- Use LspAttach autocommand to only map the following keys
-	-- after the language server attaches to the current buffer
+local on_attach = function()
 	vim.api.nvim_create_autocmd("LspAttach", {
 		group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 		callback = function(ev)
