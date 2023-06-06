@@ -16,8 +16,8 @@ map("n", "<leader><", ":10<C-w><", { noremap = true })
 -- nvimtree shortcut
 map("n", "<leader>n", ":NvimTreeFindFileToggle<CR>", { noremap = true })
 --tabs navigation
-map("n", "<leader>h", ":tabprevious<CR>", { noremap = true })
-map("n", "<leader>l", ":tabNext<CR>", { noremap = true })
+map("n", "<leader>h", ":tabp<CR>", { noremap = true })
+map("n", "<leader>l", ":tabn<CR>", { noremap = true })
 map("n", "<leader>tl", ":tablast<CR>", { noremap = true })
 map("n", "<leader>tf", ":tabfirst<CR>", { noremap = true })
 map("n", "<leader>ta", ":$tabnew<CR>", { noremap = true })
