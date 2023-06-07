@@ -39,5 +39,9 @@ let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
 ]])
 vim.cmd("filetype plugin on")
 vim.cmd("colorscheme tokyonight-moon")
-
 --[[vim.cmd('au BufNewFile,BufRead *.html set filetype=htmldjango')]]
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+	callback = function()
+		vim.cmd([[%s/\s\+$//e]])
+	end,
+})
