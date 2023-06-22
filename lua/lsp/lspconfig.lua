@@ -1,7 +1,7 @@
 --vim.lsp.set_log_level("debug"):
 
 local status, nvim_lsp = pcall(require, "lspconfig")
-if (not status) then
+if not status then
 	return
 end
 
@@ -120,10 +120,10 @@ nvim_lsp.lua_ls.setup({
 	},
 })
 
---nvim_lsp.tailwindcss.setup({
---on_attach = on_attach,
---capabilities = capabilities,
---})
+nvim_lsp.tailwindcss.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
 
 nvim_lsp.cssls.setup({
 	on_attach = on_attach,
