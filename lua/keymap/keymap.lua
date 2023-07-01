@@ -41,6 +41,8 @@ map("n", "<C-j>", ":10<C-e>", { noremap = true })
 map("n", "<C-k>", ":10<C-y>", { noremap = true })
 --run current file with node
 map("n", "<leader>x", ":!node %<cr>", { noremap = true })
+--git add %
+map("n", "<A-g>", ":Git add %<cr>", { noremap = true })
 --prettier
 map("n", "<leader>p", ":Prettier<CR>", { noremap = true })
 --linting

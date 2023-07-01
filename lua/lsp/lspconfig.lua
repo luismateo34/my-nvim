@@ -79,7 +79,8 @@ protocol.CompletionItemKind = {
 	"ﬦ", -- Operator
 	"", -- TypeParameter
 }
-
+--manage global and project-local settings.
+require("neoconf").setup({ })
 --Set up completion using nvim_cmp with LSP source
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
@@ -88,7 +89,20 @@ nvim_lsp.tsserver.setup({
 	filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
 	cmd = { "typescript-language-server", "--stdio" },
 	capabilities = capabilities,
+	 root_dir = nvim_lsp.util.root_pattern("package.json"),
+	   single_file_support = false,
 })
+require("deno-nvim").setup({
+	  server = {
+		      on_attach = on_attach,
+		          capabilites = capabilities,
+			    root_dir = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc"),
+			    },
+			      -- if you're using dap to debug (see the README for more info)
+			      --   dap = {
+			      --       adapter = ...
+			      --         }
+			               })
 --use eslint with null-ls
 --nvim_lsp.eslint.setup({
 --on_attach = function(client, bufnr)
