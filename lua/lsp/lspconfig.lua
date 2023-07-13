@@ -32,7 +32,7 @@ local on_attach = function()
 			-- See `:help vim.lsp.*` for documentation on any of the below functions
 			local opts = { buffer = ev.buf }
 			vim.keymap.set("n", "<space>dc", vim.lsp.buf.declaration, opts)
-			vim.keymap.set("n", "<space>df", vim.lsp.buf.definition, opts)
+			vim.keymap.set("n", "<space>gd", vim.lsp.buf.definition, opts)
 			vim.keymap.set("n", "<space>ho", vim.lsp.buf.hover, opts)
 			vim.keymap.set("n", "imp", vim.lsp.buf.implementation, opts)
 			vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
@@ -80,29 +80,30 @@ protocol.CompletionItemKind = {
 	"", -- TypeParameter
 }
 --manage global and project-local settings.
-require("neoconf").setup({ })
+require("neoconf").setup({})
 --Set up completion using nvim_cmp with LSP source
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 nvim_lsp.tsserver.setup({
 	on_attach = on_attach,
-	filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
-	cmd = { "typescript-language-server", "--stdio" },
 	capabilities = capabilities,
-	 root_dir = nvim_lsp.util.root_pattern("package.json"),
-	   single_file_support = false,
+	root_dir = nvim_lsp.util.root_pattern("package.json"),
+	single_file_support = false,
 })
 require("deno-nvim").setup({
-	  server = {
-		      on_attach = on_attach,
-		          capabilites = capabilities,
-			    root_dir = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc"),
-			    },
-			      -- if you're using dap to debug (see the README for more info)
-			      --   dap = {
-			      --       adapter = ...
-			      --         }
-			               })
+	server = {
+		on_attach = on_attach,
+		capabilites = capabilities,
+		root_dir = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc"),
+		init_options = {
+			lint = true,
+		},
+	},
+	-- if you're using dap to debug (see the README for more info)
+	--   dap = {
+	--       adapter = ...
+	--         }
+})
 --use eslint with null-ls
 --nvim_lsp.eslint.setup({
 --on_attach = function(client, bufnr)
@@ -134,44 +135,20 @@ nvim_lsp.lua_ls.setup({
 	},
 })
 
-nvim_lsp.tailwindcss.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
+--nvim_lsp.tailwindcss.setup({
+--	on_attach = on_attach,
+--	capabilities = capabilities,
+--})
 
-nvim_lsp.cssls.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
+-- Enable some language servers with the additional completion capabilities offered by nvim-cmp
+ local servers = { 'cssls', 'html', 'pyright', 'pyright', 'golangci_lint_ls','jsonls' }
+ for _, lsp in ipairs(servers) do
+  nvim_lsp[lsp].setup ({
+       on_attach = on_attach,
+           capabilities = capabilities,
+             })
+             end
 
-nvim_lsp.html.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-
-nvim_lsp.astro.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-nvim_lsp.pyright.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-nvim_lsp.jsonls.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-nvim_lsp.golangci_lint_ls.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-	underline = true,
-	update_in_insert = false,
-	virtual_text = { spacing = 4, prefix = "●" },
-	severity_sort = true,
-})
 
 -- Diagnostic symbols in the sign column (gutter)
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
@@ -189,14 +166,6 @@ vim.diagnostic.config({
 		source = "always", -- Or "if_many"
 	},
 })
-nvim_lsp.jsonls.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-nvim_lsp.golangci_lint_ls.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 	underline = true,
@@ -205,19 +174,3 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
 	severity_sort = true,
 })
 
--- Diagnostic symbols in the sign column (gutter)
---local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
---for type, icon in pairs(signs) do
---	local hl = "DiagnosticSign" .. type
---	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
---end
-
-vim.diagnostic.config({
-	virtual_text = {
-		prefix = "●",
-	},
-	update_in_insert = true,
-	float = {
-		source = "always", -- Or "if_many"
-	},
-})

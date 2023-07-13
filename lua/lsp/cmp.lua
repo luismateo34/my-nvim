@@ -19,11 +19,14 @@ local function formatForTailwindCSS(entry, vim_item)
   vim_item.kind = lspkind.symbolic(vim_item.kind) and lspkind.symbolic(vim_item.kind) or vim_item.kind
   return vim_item
 end
+-------
+
+local luasnip = require 'luasnip'
 
 cmp.setup({
   snippet = {
     expand = function(args)
-      require('luasnip').lsp_expand(args.body)
+      luasnip.lsp_expand(args.body)
     end,
   },
   mapping = cmp.mapping.preset.insert({
