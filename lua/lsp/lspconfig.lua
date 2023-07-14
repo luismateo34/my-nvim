@@ -1,4 +1,4 @@
---vim.lsp.set_log_level("debug"):
+
 
 local status, nvim_lsp = pcall(require, "lspconfig")
 if not status then
@@ -7,29 +7,24 @@ end
 
 local protocol = require("vim.lsp.protocol")
 
-local augroup_format = vim.api.nvim_create_augroup("Format", { clear = true })
-local enable_format_on_save = function(_, bufnr)
-	vim.api.nvim_clear_autocmds({ group = augroup_format, buffer = bufnr })
-	vim.api.nvim_create_autocmd("BufWritePre", {
-		group = augroup_format,
-		buffer = bufnr,
-		callback = function()
-			vim.lsp.buf.format({ bufnr = bufnr })
-		end,
-	})
-end
+--local augroup_format = vim.api.nvim_create_augroup("Format", { clear = true })
+--local enable_format_on_save = function(_, bufnr)
+	--vim.api.nvim_clear_autocmds({ group = augroup_format, buffer = bufnr })
+	--vim.api.nvim_create_autocmd("BufWritePre", {
+		--group = augroup_format,
+		--buffer = bufnr,
+		--callback = function()
+			--vim.lsp.buf.format({ bufnr = bufnr })
+		--end,
+	--})
+--end
 
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
 local on_attach = function()
 	vim.api.nvim_create_autocmd("LspAttach", {
 		group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 		callback = function(ev)
-			-- Enable completion triggered by <c-x><c-o>
 			vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
-			-- Buffer local mappings.
-			-- See `:help vim.lsp.*` for documentation on any of the below functions
 			local opts = { buffer = ev.buf }
 			vim.keymap.set("n", "<space>dc", vim.lsp.buf.declaration, opts)
 			vim.keymap.set("n", "<space>gd", vim.lsp.buf.definition, opts)
@@ -104,6 +99,9 @@ require("deno-nvim").setup({
 	--       adapter = ...
 	--         }
 })
+
+
+
 --use eslint with null-ls
 --nvim_lsp.eslint.setup({
 --on_attach = function(client, bufnr)
@@ -113,35 +111,34 @@ require("deno-nvim").setup({
 --})
 --end,
 --})
-nvim_lsp.lua_ls.setup({
-	capabilities = capabilities,
-	on_attach = function(client, bufnr)
-		on_attach(client, bufnr)
-		enable_format_on_save(client, bufnr)
-	end,
-	settings = {
-		Lua = {
-			diagnostics = {
-				-- Get the language server to recognize the `vim` global
-				globals = { "vim" },
-			},
-
-			workspace = {
-				-- Make the server aware of Neovim runtime files
-				library = vim.api.nvim_get_runtime_file("", true),
-				checkThirdParty = false,
-			},
-		},
-	},
-})
+--nvim_lsp.lua_ls.setup({
+--	capabilities = capabilities,
+--	on_attach = function(client, bufnr)
+--		on_attach(client, bufnr)
+--		enable_format_on_save(client, bufnr)
+--	end,
+--	settings = {
+--		Lua = {
+--		diagnostics = {
+--				-- Get the language server to recognize the `vim` global
+--				globals = { "vim" },
+--			},
+--
+--			workspace = {
+--				-- Make the server aware of Neovim runtime files
+--				library = vim.api.nvim_get_runtime_file("", true),
+--				checkThirdParty = false,
+--			},
+--		},
+--	},
+--})
 
 --nvim_lsp.tailwindcss.setup({
 --	on_attach = on_attach,
 --	capabilities = capabilities,
 --})
 
--- Enable some language servers with the additional completion capabilities offered by nvim-cmp
- local servers = { 'cssls', 'html', 'pyright', 'pyright', 'golangci_lint_ls','jsonls' }
+ local servers = { 'cssls', 'html', 'lua_ls', 'pyright', 'pyright', 'golangci_lint_ls','jsonls' }
  for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup ({
        on_attach = on_attach,
