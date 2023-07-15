@@ -19,8 +19,6 @@ return {
 	"yggdroot/indentline",
 	"scrooloose/nerdcommenter",
 	"tpope/vim-repeat", -- repeat comand inside that map
-	---documentation
-	"heavenshell/vim-jsdoc",
 	--- manage global and project-local settings
 	  "folke/neoconf.nvim",
 	--git
