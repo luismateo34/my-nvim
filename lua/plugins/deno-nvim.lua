@@ -1,4 +1,0 @@
-return{
-'sigmasd/deno-nvim'
-
-}
