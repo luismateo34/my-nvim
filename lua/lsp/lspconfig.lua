@@ -77,15 +77,6 @@ require("neoconf").setup({})
 --Set up completion using nvim_cmp with LSP source
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
---use eslint with null-ls
---nvim_lsp.eslint.setup({
---on_attach = function(client, bufnr)
---vim.api.nvim_create_autocmd("BufWritePre", {
---buffer = bufnr,
---command = "EslintFixAll",
---})
---end,
---})
 nvim_lsp.lua_ls.setup({
 	capabilities = capabilities,
 	on_attach = function(client, bufnr)
@@ -113,7 +104,7 @@ nvim_lsp.lua_ls.setup({
 --	capabilities = capabilities,
 --})
 
-local servers = { "cssls","svelte", "tsserver", "html", "pyright", "pyright", "golangci_lint_ls", "jsonls" }
+local servers = { "cssls", "svelte","astro" , "tsserver", "html", "pyright", "pyright", "golangci_lint_ls", "jsonls" }
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup({
 		on_attach = on_attach,
