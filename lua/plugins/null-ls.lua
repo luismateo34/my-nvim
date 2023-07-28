@@ -1,23 +1,17 @@
 return {
 	"jose-elias-alvarez/null-ls.nvim",
-	dependencies = { "mason.nvim", "nvim-lua/plenary.nvim" },
 	event = "BufReadPre",
+	dependencies = { "mason.nvim" },
 	opts = function()
 		local nls = require("null-ls")
 		return {
 			sources = {
-				nls.builtins.formatting.stylua.with({
-					filetypes = { "lua" },
-				}),
+				nls.builtins.formatting.stylua,
 				nls.builtins.diagnostics.flake8,
-				--nls.builtins.diagnostics.eslint,
-				--nls.builtins.diagnostics.eslint.with({
-				---- ignore prettier warnings from eslint-plugin-prettier
-				--	filter = function(diagnostic)
-				--		return diagnostic.code ~= "prettier/prettier"
-				--	end,
-				--	}),
+				--nls.builtins.formatting.eslint_d,
 			},
 		}
 	end,
 }
+
+

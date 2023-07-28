@@ -104,14 +104,22 @@ nvim_lsp.lua_ls.setup({
 --	capabilities = capabilities,
 --})
 
-local servers = { "cssls", "svelte","astro" , "tsserver", "html", "pyright", "pyright", "golangci_lint_ls", "jsonls" }
+local servers =
+{ "cssls", "svelte", "astro", "eslint", "tsserver", "html", "pyright", "pyright", "golangci_lint_ls", "jsonls" }
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
 	})
 end
-
+--nvim_lsp.eslint.setup({
+--	    on_attach = function(client, bufnr)
+--	        vim.api.nvim_create_autocmd("BufWritePre", {
+--	              buffer = bufnr,
+--	                    command = "EslintFixAll",
+--	                        })
+--	                          end,
+--	                          })
 -- Diagnostic symbols in the sign column (gutter)
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
