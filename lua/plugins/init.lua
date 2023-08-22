@@ -20,8 +20,10 @@ return {
 	"scrooloose/nerdcommenter",
 	"tpope/vim-repeat", -- repeat comand inside that map
 	--- manage global and project-local settings
-	  "folke/neoconf.nvim",
+	"folke/neoconf.nvim",
 	--git
 	"mhinz/vim-signify", --git column
 	"tpope/vim-fugitive", --  git complement
+	--ale-linter
+	'dense-analysis/ale',
 }

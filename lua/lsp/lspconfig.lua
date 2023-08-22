@@ -99,13 +99,13 @@ nvim_lsp.lua_ls.setup({
 	},
 })
 
---nvim_lsp.tailwindcss.setup({
---	on_attach = on_attach,
---	capabilities = capabilities,
---})
+nvim_lsp.tailwindcss.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
 
 local servers =
-{ "cssls", "svelte", "astro", "eslint", "tsserver", "html", "pyright", "pyright", "golangci_lint_ls", "jsonls" }
+{ "cssls", "svelte", "astro",  "tsserver", "html", "pyright", "pyright", "golangci_lint_ls", "jsonls" }
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup({
 		on_attach = on_attach,

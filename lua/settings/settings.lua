@@ -45,3 +45,9 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 		vim.cmd([[%s/\s\+$//e]])
 	end,
 })
+vim.cmd([[
+let b:ale_fixers = ['eslint']
+let g:ale_fix_on_save = 1
+let g:ale_completion_autoimport = 0
+let g:ale_completion_enabled = 0
+]])

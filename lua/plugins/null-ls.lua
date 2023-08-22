@@ -8,7 +8,8 @@ return {
 			sources = {
 				nls.builtins.formatting.stylua,
 				nls.builtins.diagnostics.flake8,
-				--nls.builtins.formatting.eslint_d,
+				--nls.builtins.diagnostics.eslint_d,
+
 			},
 		}
 	end,
