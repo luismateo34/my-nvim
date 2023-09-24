@@ -14,7 +14,6 @@ return {
 	--ide
 	"editorconfig/editorconfig-vim",
 	--other
-	"terryma/vim-multiple-cursors",
 	"easymotion/vim-easymotion", --provides a much simpler way to use some motions in vim.
 	"yggdroot/indentline",
 	"scrooloose/nerdcommenter",
