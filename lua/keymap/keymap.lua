@@ -58,6 +58,13 @@ map("n", "<leader>ls", builtin.lsp_workspace_symbols, { noremap = true })
 map("n", "<leader>fg", builtin.live_grep, { noremap = true })
 map("n", "<leader>fb", builtin.buffers, { noremap = true })
 map("n", "<leader>fh", builtin.help_tags, { noremap = true })
+--vim.cmd([[
+--nnoremap <Plug>RestNvim :lua require('rest-nvim').run()<CR>
+--nnoremap <Plug>RestNvimPreview :lua require('rest-nvim').run(true)<CR>
+--nnoremap <Plug>RestNvimLast :lua require('rest-nvim').last()<CR>
+--" nnoremap <Plug>RestNvimSelectEnv :lua require('rest-nvim').last()<CR>
+-- ]])
+
 -- split windows native shortcut
 --C-ws or :sp o :split : split windows in two
 -- C-wv or :vsp or :vs : vertical split window

@@ -24,5 +24,7 @@ return {
 	"mhinz/vim-signify", --git column
 	"tpope/vim-fugitive", --  git complement
 	--ale-linter
-	'dense-analysis/ale',
+	"dense-analysis/ale",
+	-----Vim syntax highlighting for Blade templates
+	'jwalton512/vim-blade'
 }

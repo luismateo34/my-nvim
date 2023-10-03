@@ -105,21 +105,27 @@ nvim_lsp.tailwindcss.setup({
 })
 
 local servers =
-{ "cssls", "svelte", "astro",  "tsserver", "html", "pyright","sqlls", "golangci_lint_ls", "jsonls","prismals" }
+{ "cssls", "svelte", "astro",  "tsserver", "html", "pyright", "sqlls", "golangci_lint_ls", "jsonls",
+	"prismals" }
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
 	})
 end
---nvim_lsp.eslint.setup({
---	    on_attach = function(client, bufnr)
---	        vim.api.nvim_create_autocmd("BufWritePre", {
---	              buffer = bufnr,
---	                    command = "EslintFixAll",
---	                        })
---	                          end,
---	                          })
+nvim_lsp.intelephense.setup({
+   on_attach = on_attach,
+ flags = lsp_flags,
+
+})
+nvim_lsp.phpactor.setup({
+	    on_attach = on_attach,
+	        init_options = {
+			        ["language_server_phpstan.enabled"] = false,
+				        ["language_server_psalm.enabled"] = false,
+					    }
+					    })
+
 -- Diagnostic symbols in the sign column (gutter)
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
