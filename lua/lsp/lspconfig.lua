@@ -1,9 +1,5 @@
-local status, nvim_lsp = pcall(require, "lspconfig")
-if not status then
-	return
-end
-
 local protocol = require("vim.lsp.protocol")
+local servers = require("lsp.server")
 
 local augroup_format = vim.api.nvim_create_augroup("Format", { clear = true })
 local enable_format_on_save = function(_, bufnr)
@@ -13,34 +9,6 @@ local enable_format_on_save = function(_, bufnr)
 		buffer = bufnr,
 		callback = function()
 			vim.lsp.buf.format({ bufnr = bufnr })
-		end,
-	})
-end
-
-local on_attach = function()
-	vim.api.nvim_create_autocmd("LspAttach", {
-		group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-		callback = function(ev)
-			vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
-
-			local opts = { buffer = ev.buf }
-			vim.keymap.set("n", "<space>dc", vim.lsp.buf.declaration, opts)
-			vim.keymap.set("n", "<space>gd", vim.lsp.buf.definition, opts)
-			vim.keymap.set("n", "<space>ho", vim.lsp.buf.hover, opts)
-			vim.keymap.set("n", "imp", vim.lsp.buf.implementation, opts)
-			vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
-			vim.keymap.set("n", "<space>aw", vim.lsp.buf.add_workspace_folder, opts)
-			vim.keymap.set("n", "<space>rw", vim.lsp.buf.remove_workspace_folder, opts)
-			vim.keymap.set("n", "<space>fw", function()
-				print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-			end, opts)
-			vim.keymap.set("n", "<space>td", vim.lsp.buf.type_definition, opts)
-			vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
-			vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
-			vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-			vim.keymap.set("n", "<space>ft", function()
-				vim.lsp.buf.format({ async = true })
-			end, opts)
 		end,
 	})
 end
@@ -73,59 +41,7 @@ protocol.CompletionItemKind = {
 	"", -- TypeParameter
 }
 --manage global and project-local settings.
-require("neoconf").setup({})
 --Set up completion using nvim_cmp with LSP source
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-nvim_lsp.lua_ls.setup({
-	capabilities = capabilities,
-	on_attach = function(client, bufnr)
-		on_attach(client, bufnr)
-		enable_format_on_save(client, bufnr)
-	end,
-	settings = {
-		Lua = {
-			diagnostics = {
-				-- Get the language server to recognize the `vim` global
-				globals = { "vim" },
-			},
-
-			workspace = {
-				-- Make the server aware of Neovim runtime files
-				library = vim.api.nvim_get_runtime_file("", true),
-				checkThirdParty = false,
-			},
-		},
-	},
-})
-
-nvim_lsp.tailwindcss.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-
-local servers =
-{ "cssls", "svelte", "astro",  "tsserver", "html", "pyright", "sqlls", "golangci_lint_ls", "jsonls",
-	"prismals" }
-for _, lsp in ipairs(servers) do
-	nvim_lsp[lsp].setup({
-		on_attach = on_attach,
-		capabilities = capabilities,
-	})
-end
-nvim_lsp.intelephense.setup({
-   on_attach = on_attach,
- flags = lsp_flags,
-
-})
-nvim_lsp.phpactor.setup({
-	    on_attach = on_attach,
-	        init_options = {
-			        ["language_server_phpstan.enabled"] = false,
-				        ["language_server_psalm.enabled"] = false,
-					    }
-					    })
-
 -- Diagnostic symbols in the sign column (gutter)
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do

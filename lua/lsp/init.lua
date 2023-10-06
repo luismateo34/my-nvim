@@ -1,6 +1,6 @@
+require("lsp.mason")
 require("lsp.lspconfig")
 require("lsp.cmp")
 require("lsp.lspkind")
-require("lsp.mason")
 require("lsp.lspsaga")
 require("lsp.prettier")

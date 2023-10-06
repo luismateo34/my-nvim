@@ -58,6 +58,11 @@ map("n", "<leader>ls", builtin.lsp_workspace_symbols, { noremap = true })
 map("n", "<leader>fg", builtin.live_grep, { noremap = true })
 map("n", "<leader>fb", builtin.buffers, { noremap = true })
 map("n", "<leader>fh", builtin.help_tags, { noremap = true })
+--rest.nvim
+map( "n", "<A-r>", ":lua require('rest-nvim').run()<CR>", { noremap = true})
+map( "n", "<A-l>", ":lua require('rest-nvim').last(true)<CR>", { noremap = true})
+
+
 --vim.cmd([[
 --nnoremap <Plug>RestNvim :lua require('rest-nvim').run()<CR>
 --nnoremap <Plug>RestNvimPreview :lua require('rest-nvim').run(true)<CR>

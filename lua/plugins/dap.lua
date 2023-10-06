@@ -3,7 +3,6 @@ return {
 	dependencies = {
 		"theHamsta/nvim-dap-virtual-text",
 		"rcarriga/nvim-dap-ui",
-		"leoluz/nvim-dap-go",
 		"mxsdev/nvim-dap-vscode-js",
 		"mfussenegger/nvim-dap-python",
 		"anuvyklack/hydra.nvim",
