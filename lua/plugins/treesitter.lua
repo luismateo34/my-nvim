@@ -3,7 +3,6 @@ return {
 	build = ":TSUpdate",
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter-refactor",
-		"HiPhish/nvim-ts-rainbow2",
 	},
 	config = function()
 		require("nvim-treesitter.configs").setup({
@@ -30,14 +29,7 @@ return {
 			indent = {
 				enable = true,
 			},
-			rainbow = {
-				enable = true,
-				-- Which query to use for finding delimiters
-				query = "rainbow-parens",
-				-- Highlight the entire buffer all at once
-				strategy = require("ts-rainbow").strategy.global,
-			},
-			incremental_selection = {
+						incremental_selection = {
 				enable = false,
 				keymaps = {
 					init_selection = "gnn",
