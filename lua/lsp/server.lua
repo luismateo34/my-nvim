@@ -45,8 +45,28 @@ nvim_lsp.tailwindcss.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
+nvim_lsp.tailwindcss.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
 
-local servers = { "cssls", "svelte","dockerls","docker_compose_language_service", "astro", "tsserver", "html", "pyright", "sqlls", "jsonls", "prismals" }
+
+
+local servers = {
+	"cssls",
+	"mdx_analyzer",
+	"svelte",
+	"dockerls",
+	"docker_compose_language_service",
+	"astro",
+	"tsserver",
+	"html",
+	"pyright",
+	"sqlls",
+	"jsonls",
+	"prismals",
+	"golangci_lint_ls"
+}
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup({
 		on_attach = on_attach,

@@ -5,6 +5,7 @@ vim.opt.relativenumber = true
 vim.opt.mouse = "a"
 vim.opt.numberwidth = 1
 vim.opt.syntax = "on"
+vim.cmd("filetype plugin on")
 vim.opt.showcmd = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
@@ -29,15 +30,6 @@ vim.cmd("set signcolumn=yes")
 vim.cmd("set diffopt+=vertical")
 vim.cmd("set nobackup")
 vim.cmd("set nowritebackup")
-vim.cmd([[
-let g:closetag_filenames = '*.html,*.js,*.jsx,*.ts,*.tsx,*.astro'
-let g:UltiSnipsSnippetDirectories=[$HOME. '/.config/nvim/lua/UltiSnips']
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsListSnippets="<C-_>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
-]])
-vim.cmd("filetype plugin on")
 vim.cmd("colorscheme tokyonight-moon")
 --[[vim.cmd('au BufNewFile,BufRead *.html set filetype=htmldjango')]]
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
@@ -45,12 +37,11 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 		vim.cmd([[%s/\s\+$//e]])
 	end,
 })
-
-vim.cmd([[
-let g:ale_use_neovim_diagnostics_api = 1
-let g:ale_disable_lsp = 1
-let b:ale_fixers = ['eslint']
-let g:ale_fix_on_save = 1
-let g:ale_completion_autoimport = 0
-let g:ale_completion_enabled = 0
-]])
+-- habilita sintaxis de md para mdx
+vim.filetype.add({
+	extension = {
+		mdx = "mdx",
+	},
+})
+local ft_to_parser = require("nvim-treesitter.parsers").filetype_to_parsername
+ft_to_parser.mdx = "markdown"

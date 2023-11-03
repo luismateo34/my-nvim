@@ -9,8 +9,9 @@ return {
 				nls.builtins.formatting.stylua,
 				nls.builtins.diagnostics.flake8,
 				--nls.builtins.diagnostics.eslint,
-				 nls.builtins.diagnostics.php,
-				 nls.builtins.formatting.blade_formatter,
+				nls.builtins.diagnostics.php,
+				nls.builtins.formatting.blade_formatter,
+				nls.builtins.formatting.markdownlint,
 			},
 		}
 	end,
