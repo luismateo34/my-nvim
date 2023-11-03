@@ -1,2 +1,5 @@
-require('keymap.keymap') 
-require('keymap.vimkey')
+require("keymap.keymap")
+require("keymap.tabs")
+require("keymap.telescope")
+require("keymap.vimkey")
+require("keymap.testing")

@@ -4,27 +4,11 @@ vim.cmd("imap zx <ESC>")
 map("n", "<leader>w", ":w<CR>", { noremap = true })
 map("n", "<leader>q", ":q<CR>", { noremap = true })
 map("n", "<Leader>Q", ":q!<CR>", { noremap = true })
---testing
-map("n", "<leader>t", ":TestNearest<CR>", { noremap = true })
-map("n", "<leader>T", ":TestFile<CR>", { noremap = true })
-map("n", "<leader>TT", ":TestSuite<CR>", { noremap = true })
-map("n", "<leader>lt", ":TestLast<CR>", { noremap = true })
-map("n", "<leader>tv", ":TestVisit<CR>", { noremap = true })
 --split resize
 map("n", "<leader>>", ":10<C-w>>", { noremap = true })
 map("n", "<leader><", ":10<C-w><", { noremap = true })
 -- nvimtree shortcut
 map("n", "<leader>n", ":NvimTreeFindFileToggle<CR>", { noremap = true })
---tabs navigation
-map("n", "<leader>h", ":tabp<CR>", { noremap = true })
-map("n", "<leader>l", ":tabn<CR>", { noremap = true })
-map("n", "<leader>tl", ":tablast<CR>", { noremap = true })
-map("n", "<leader>tf", ":tabfirst<CR>", { noremap = true })
-map("n", "<leader>ta", ":$tabnew<CR>", { noremap = true })
-map("n", "<leader>tc", ":tabclose<CR>", { noremap = true })
-map("n", "<leader>to", ":tabonly<CR>", { noremap = true })
-map("n", "<leader>tj", ":-tabmove<CR>", { noremap = true })
-map("n", "<leader>tk", ":+tabmove<CR>", { noremap = true })
 --<buffer>
 map("n", "<leader>bu", ":buffers<CR>", { noremap = true })
 --keeping it centered
@@ -51,17 +35,9 @@ map("n", "<leader>ft", ":lua vim.lsp.buf.format()<CR>", { noremap = true })
 map("n", "<leader>af", ":!eslint<CR>", { noremap = true })
 --stylelint
 map("n", "<leader>sl", ":!stylelint<CR>", { noremap = true })
---telescope
-local builtin = require("telescope.builtin")
-map("n", "<leader>ff", builtin.find_files, { noremap = true })
-map("n", "<leader>ls", builtin.lsp_workspace_symbols, { noremap = true })
-map("n", "<leader>fg", builtin.live_grep, { noremap = true })
-map("n", "<leader>fb", builtin.buffers, { noremap = true })
-map("n", "<leader>fh", builtin.help_tags, { noremap = true })
 --rest.nvim
-map( "n", "<A-r>", ":lua require('rest-nvim').run()<CR>", { noremap = true})
-map( "n", "<A-l>", ":lua require('rest-nvim').last(true)<CR>", { noremap = true})
-
+map("n", "<A-r>", ":lua require('rest-nvim').run()<CR>", { noremap = true })
+map("n", "<A-l>", ":lua require('rest-nvim').last(true)<CR>", { noremap = true })
 
 --vim.cmd([[
 --nnoremap <Plug>RestNvim :lua require('rest-nvim').run()<CR>
