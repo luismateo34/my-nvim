@@ -1,0 +1,35 @@
+-- no usar, uso lspkind en su lugar
+
+--local protocol = require("vim.lsp.protocol")
+
+--protocol.CompletionItemKind = {
+	--"", -- Text
+	--"", -- Method
+	--"", -- Function
+	--"", -- Constructor
+	--"", -- Field
+	--"", -- Variable
+	--"", -- Class
+	--"ﰮ", -- Interface
+	--"", -- Module
+	--"", -- Property
+	--"", -- Unit
+	--"", -- Value
+	--"", -- Enum
+	--"", -- Keyword
+	--"﬌", -- Snippet
+	--"", -- Color
+	--"", -- File
+	--"", -- Reference
+	--"", -- Folder
+	--"", -- EnumMember
+	--"", -- Constant
+	--"", -- Struct
+	--"", -- Event
+	--"ﬦ", -- Operator
+	--"", -- TypeParameter
+--}
+--manage global and project-local settings.
+--Set up completion using nvim_cmp with LSP source
+-- Diagnostic symbols in the sign column (gutter)
+
