@@ -25,7 +25,6 @@ return {
 		"hrsh7th/cmp-buffer", -- nvim-cmp source for buffer words
 		"hrsh7th/cmp-nvim-lsp", -- nvim-cmp source for neovim"s built-in LSP
 		"hrsh7th/nvim-cmp", -- Completion
-		"neovim/nvim-lspconfig", -- LSP
 		"MunifTanjim/prettier.nvim",
 		{
 			"jay-babu/mason-null-ls.nvim",

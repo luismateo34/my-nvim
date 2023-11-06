@@ -24,7 +24,7 @@ end
 -------
 
 local luasnip = require("luasnip")
-
+--atatjos de autocompletado
 cmp.setup({
 	snippet = {
 		expand = function(args)
@@ -34,7 +34,7 @@ cmp.setup({
 	mapping = cmp.mapping.preset.insert({
 		["<C-d>"] = cmp.mapping.scroll_docs(-4),
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
-		["<C-Alt>"] = cmp.mapping.complete(),
+		["<C-space>"] = cmp.mapping.complete(),
 		["<C-e>"] = cmp.mapping.close(),
 		["<CR>"] = cmp.mapping.confirm({
 			behavior = cmp.ConfirmBehavior.Replace,
