@@ -1,9 +1,12 @@
 local on_attach = require("lsp.attach")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local status, nvim_lsp = pcall(require, "lspconfig")
-if not status then
-	return
-end
+--local status, nvim_lsp = pcall(require, "lspconfig")
+--if not status then
+--return
+--end
+
+local nvim_lsp = require("lspconfig")
+
 local lsp_flags = {
 	debounce_text_changes = 150,
 }
@@ -50,8 +53,6 @@ nvim_lsp.tailwindcss.setup({
 	capabilities = capabilities,
 })
 
-
-
 local servers = {
 	"cssls",
 	"mdx_analyzer",
@@ -65,7 +66,7 @@ local servers = {
 	"sqlls",
 	"jsonls",
 	"prismals",
-	"golangci_lint_ls"
+	"golangci_lint_ls",
 }
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup({

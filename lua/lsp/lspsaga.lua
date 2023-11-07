@@ -1,8 +1,9 @@
-local status, saga = pcall(require, "lspsaga")
-if not status then
-	return
-end
+--local status, saga = pcall(require, "lspsaga")
+--if not status then
+--return
+--end
 
+local saga = require("lspsaga")
 saga.setup({
 	ui = {
 		winblend = 10,

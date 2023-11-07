@@ -1,7 +1,8 @@
-local status, lspkind = pcall(require, "lspkind")
-if not status then
-	return
-end
+--local status, lspkind = pcall(require, "lspkind")
+--if not status then
+--return
+--end
+local lspkind = require("lspkind")
 
 lspkind.init({
 	-- enables text annotations
