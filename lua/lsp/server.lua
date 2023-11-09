@@ -44,14 +44,6 @@ nvim_lsp.lua_ls.setup({
 	},
 })
 
-nvim_lsp.tailwindcss.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-nvim_lsp.tailwindcss.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
 
 local servers = {
 	"cssls",
@@ -78,3 +70,8 @@ nvim_lsp.intelephense.setup({
 	on_attach = on_attach,
 	flags = lsp_flags,
 })
+nvim_lsp.tailwindcss.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+

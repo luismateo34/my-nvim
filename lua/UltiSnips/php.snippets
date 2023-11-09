@@ -1,0 +1,33 @@
+snippet %% "" bi
+{% ${1:tag_name} %}
+  ${2:content...}
+{% end$1 %}
+endsnippet
+
+snippet block "" bi
+{% block $1 %}
+  ${2:content...}
+{% endblock $1 %}
+endsnippet
+
+snippet extends "" bi
+{% extends '${1:base.html}' %}
+endsnippet
+
+snippet include "" bi
+{% include '${1:something}.html' %}
+endsnippet
+
+snippet html5 "" bi
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title></title>
+</head>
+<body>
+
+</body>
+</html>
+endsnippet
