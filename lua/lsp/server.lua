@@ -52,7 +52,6 @@ local servers = {
 	"dockerls",
 	"docker_compose_language_service",
 	"astro",
-	"tsserver",
 	"html",
 	"pyright",
 	"sqlls",
@@ -74,4 +73,19 @@ nvim_lsp.tailwindcss.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
+
+nvim_lsp.tsserver.setup{
+  on_attach = on_attach,
+  capabilities = lsp_capabilities,
+  root_dir = nvim_lsp.util.root_pattern("package.json")
+}
+
+nvim_lsp.denols.setup {
+  on_attach = on_attach,
+  capabilities = lsp_capabilities,
+  root_dir = nvim_lsp.util.root_pattern("deno.json"),
+  init_options = {
+    lint = true,
+  }
+}
 
