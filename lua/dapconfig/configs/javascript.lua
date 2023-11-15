@@ -1,6 +1,6 @@
 require("dap-vscode-js").setup({
 	debugger_cmd = { "js-debug-adapter" },
-	debugger_path = "/home/luis/.local/share/nvim/site/pack/packer/opt/vscode-js-debug",
+	debugger_path = "/home/luis/.local/share/nvim/mason/bin/vscode-js-debug",
 	adapters = { "pwa-node", "pwa-chrome", "node-terminal" },
 })
 --- node

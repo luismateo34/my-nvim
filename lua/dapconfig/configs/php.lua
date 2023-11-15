@@ -3,6 +3,7 @@ local dap = require("dap")
 dap.adapters.php = {
   type = "executable",
   command = "php-debug-adapter",
+   args = { '/home/luis/.local/share/nvim/mason/packages/phpDebug.js' },
 }
 
 dap.configurations.php = {
