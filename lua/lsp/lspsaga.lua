@@ -1,8 +1,3 @@
---local status, saga = pcall(require, "lspsaga")
---if not status then
---return
---end
-
 local saga = require("lspsaga")
 saga.setup({
 	ui = {
@@ -16,14 +11,14 @@ saga.setup({
 
 local diagnostic = require("lspsaga.diagnostic")
 local opts = { noremap = true, silent = true }
-vim.keymap.set("n", "<C-a>", "<Cmd>Lspsaga diagnostic_jump_next<CR>", opts)
-vim.keymap.set("n", "gl", "<Cmd>Lspsaga show_line_diagnostics<CR>", opts)
+--vim.keymap.set("n", "<C-a>", "<Cmd>Lspsaga diagnostic_jump_next<CR>", opts)
+--vim.keymap.set("n", "gl", "<Cmd>Lspsaga show_line_diagnostics<CR>", opts)
 vim.keymap.set("n", "K", "<Cmd>Lspsaga hover_doc<CR>", opts)
-vim.keymap.set("n", "gd", "<Cmd>Lspsaga lsp_finder<CR>", opts)
+vim.keymap.set("n", "fd", "<Cmd>Lspsaga finder<CR>", opts)
+vim.keymap.set("n", "gd", "<Cmd>Lspsaga goto_type_definition<CR>", opts)
 vim.keymap.set("n", "<A-t>", "<Cmd>Lspsaga term_toggle<CR>", opts)
 vim.keymap.set("n", "<space>so", "<Cmd>Lspsaga outline<CR>", opts)
-vim.keymap.set("i", "<C-s>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-vim.keymap.set("n", "gp", "<Cmd>Lspsaga peek_definition<CR>", opts)
+vim.keymap.set("n", "lp", "<Cmd>Lspsaga peek_definition<CR>", opts)
 vim.keymap.set("n", "gr", "<Cmd>Lspsaga rename<CR>", opts)
 
 -- code action

@@ -1,12 +1,6 @@
 local on_attach = require("lsp.attach")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
---local status, nvim_lsp = pcall(require, "lspconfig")
---if not status then
---return
---end
-
 local nvim_lsp = require("lspconfig")
-
 local lsp_flags = {
 	debounce_text_changes = 150,
 }
@@ -74,5 +68,3 @@ nvim_lsp.tailwindcss.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
-
-
