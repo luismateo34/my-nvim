@@ -11,9 +11,6 @@ return {
 		},
 		{
 			'glepnir/lspsaga.nvim', -- LSP UIs
-			--config = function()
-				--require("lspsaga").setup({})
-			--end,
 			requires = {
 				{ "kyazdani42/nvim-web-devicons" },
 				{ "nvim-treesitter/nvim-treesitter" },
