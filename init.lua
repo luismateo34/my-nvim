@@ -7,10 +7,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 vim.g.mapleader = " "
-require("lazy").setup('plugins')
-require('settings')
-require('lsp')
-require('dapconfig')
-require('keymap')
---local function configure()
---end
+require("lazy").setup("plugins")
+require("settings")
+require("lsp")
+require("keymap")

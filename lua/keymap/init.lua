@@ -1,5 +1,5 @@
 require("keymap.keymap")
 require("keymap.tabs")
-require("keymap.telescope")
+require("keymap.telescopemap.mappings")
 require("keymap.vimkey")
 require("keymap.testing")

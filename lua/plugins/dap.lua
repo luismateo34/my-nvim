@@ -10,9 +10,9 @@ return {
 		"nvim-telescope/telescope-dap.nvim",
 		"rcarriga/cmp-dap",
 	},
-	keys = { { "<leader>d" } },
+	keys = { { "<leader>d", desc = " Open debug menu " } },
 	config = function()
-		require("dapconfig.init")
+		require("dapconfig")
 		local ok_telescope, telescope = pcall(require, "telescope")
 		if ok_telescope then
 			telescope.load_extension("dap")

@@ -5,10 +5,9 @@ return {
 		{ "nvim-lua/popup.nvim" },
 		{ "kyazdani42/nvim-web-devicons" },
 		{ "nvim-telescope/telescope-file-browser.nvim" },
-
 	},
 	event = "VeryLazy",
-	config = function()
+        config = function()
 		require("telescope").load_extension "file_browser"
 	end,
 }

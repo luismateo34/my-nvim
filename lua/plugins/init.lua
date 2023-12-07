@@ -1,9 +1,6 @@
 return {
 	--css utilities
 	"norcalli/nvim-colorizer.lua",
-	"KabbAmine/vCoolor.vim",
-	--Themes
-	"dracula/vim",
 	--lorem ipsum generator
 	"derektata/lorem.nvim",
 	--snippets
@@ -22,9 +19,4 @@ return {
 	"folke/neoconf.nvim",
 	--git
 	"mhinz/vim-signify", --git column
-	"tpope/vim-fugitive", --  git complement
-	--ale-linter
-	"dense-analysis/ale",
-	-----Vim syntax highlighting for Blade templates
-	'jwalton512/vim-blade'
 }

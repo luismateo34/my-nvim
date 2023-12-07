@@ -24,20 +24,28 @@ nvim_lsp.lua_ls.setup({
 	end,
 	settings = {
 		Lua = {
+			runtime = {
+				version = "LuaJIT",
+			},
 			diagnostics = {
-				-- Get the language server to recognize the `vim` global
 				globals = { "vim" },
 			},
-
 			workspace = {
-				-- Make the server aware of Neovim runtime files
 				library = vim.api.nvim_get_runtime_file("", true),
 				checkThirdParty = false,
+			},
+			telemetry = {
+				enable = false,
+			},
+			hint = {
+				enable = true,
+			},
+			completion = {
+				callSnippet = "Replace",
 			},
 		},
 	},
 })
-
 
 local servers = {
 	"cssls",
@@ -68,3 +76,5 @@ nvim_lsp.tailwindcss.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
+
+

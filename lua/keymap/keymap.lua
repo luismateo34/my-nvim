@@ -34,7 +34,7 @@ map("n", "<leader>ft", ":lua vim.lsp.buf.format()<CR>", { noremap = true })
 --eslint
 map("n", "<leader>af", ":!eslint<CR>", { noremap = true })
 --stylelint
-map("n", "<leader>sl", ":!stylelint<CR>", { noremap = true })
+--map("n", "<leader>sl", ":!stylelint<CR>", { noremap = true })
 --rest.nvim
 map("n", "<A-r>", ":lua require('rest-nvim').run()<CR>", { noremap = true })
 map("n", "<A-l>", ":lua require('rest-nvim').last(true)<CR>", { noremap = true })
