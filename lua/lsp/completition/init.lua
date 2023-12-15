@@ -1,10 +1,9 @@
-local cmp = require("cmp")
+local cmp = require "cmp"
 local lspkind = require("lspkind")
 local luasnip = require("luasnip")
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 local compare = require("cmp.config.compare")
 
-cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
 
 local function formatForTailwindCSS(entry, vim_item)
 	if vim_item.kind == "Color" and entry.completion_item.documentation then
@@ -24,6 +23,9 @@ local function formatForTailwindCSS(entry, vim_item)
 	return vim_item
 end
 
+local M = {}
+
+function M.setup()
 cmp.setup({
 	mapping = cmp.mapping.preset.insert({
 		["<C-d>"] = cmp.mapping.scroll_docs(-4),
@@ -54,25 +56,26 @@ cmp.setup({
 		["<c-space>"] = cmp.mapping.complete(),
 	}),
 	sources = cmp.config.sources({
-		{ name = "nvim_lua" },
 		{ name = "nvim_lsp" },
 		{ name = "path" },
 		{ name = "luasnip" },
+		{ name = "nvim_lua" },
+		--{ name = "buffer",  keyword_length = 4 },
 		{
-			name = "buffer",
-			keyword_length = 4,
-			option = {
-				get_bufnrs = function()
-					local bufs = {}
-					for _, win in ipairs(vim.api.nvim_list_wins()) do
-						local bufnr = vim.api.nvim_win_get_buf(win)
-						if vim.api.nvim_buf_get_option(bufnr, "buftype") ~= "terminal" then
-							bufs[bufnr] = true
-						end
-					end
-					return vim.tbl_keys(bufs)
-				end,
-			},
+		name = "buffer",
+		keyword_length = 4,
+		option = {
+		get_bufnrs = function()
+		local bufs = {}
+		for _, win in ipairs(vim.api.nvim_list_wins()) do
+		local bufnr = vim.api.nvim_win_get_buf(win)
+		if vim.api.nvim_buf_get_option(bufnr, "buftype") ~= "terminal" then
+		bufs[bufnr] = true
+		end
+		end
+		return vim.tbl_keys(bufs)
+		end,
+		},
 		},
 	}),
 	snippet = {
@@ -89,13 +92,13 @@ cmp.setup({
 				vim_item = formatForTailwindCSS(entry, vim_item)
 				return vim_item
 			end,
-			menu = {
-				buffer = "[buf]",
-				--nvim_lsp = "[ ]",
-				nvim_lua = "[api]",
-				path = "[path]",
-				luasnip = "[snip]",
-			},
+			--menu = {
+			--buffer = "[buf]",
+			----nvim_lsp = "[ ]",
+			--nvim_lua = "[api]",
+			--path = "[path]",
+			--luasnip = "[snip]",
+			--},
 		}),
 	},
 
@@ -115,6 +118,7 @@ cmp.setup({
 })
 --vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
 
+cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
 -- Set configuration for specific filetype.
 cmp.setup.filetype("gitcommit", {
 	sources = cmp.config.sources({
@@ -149,3 +153,11 @@ cmp.setup.filetype({ "sql", "mysql", "plsql" }, {
 		{ name = "buffer" },
 	}),
 })
+--vim.cmd([[
+  --set completeopt=menuone,noinsert,noselect
+  --highlight! default link CmpItemKind CmpItemMenuDefault
+--]])
+end
+
+return M
+

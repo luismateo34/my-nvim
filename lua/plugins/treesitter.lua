@@ -13,6 +13,7 @@ return {
 			"css",
 			"go",
 			"html",
+			"http",
 			"javascript",
 			"json",
 			"lua",

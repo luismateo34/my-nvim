@@ -13,7 +13,6 @@ return {
 		{ "L3MON4D3/LuaSnip", version = "v1.*" },
 	},
 	event = "VeryLazy",
-	config = function()
-		require("lsp.completition")
-	end,
-}
+	main = "lsp.completition",
+	config = true
+	}
