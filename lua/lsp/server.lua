@@ -52,7 +52,6 @@ local servers = {
 	"mdx_analyzer",
 	"svelte",
 	"dockerls",
-	"docker_compose_language_service",
 	"astro",
 	"html",
 	"pyright",
@@ -60,6 +59,7 @@ local servers = {
 	"jsonls",
 	"tsserver",
 	"prismals",
+        "yamlls",
 	"golangci_lint_ls",
 }
 for _, lsp in ipairs(servers) do
@@ -72,6 +72,7 @@ nvim_lsp.intelephense.setup({
 	on_attach = on_attach,
 	flags = lsp_flags,
 })
+
 nvim_lsp.tailwindcss.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
