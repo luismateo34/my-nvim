@@ -14,6 +14,7 @@ return {
 				nls.builtins.formatting.phpcsfixer,
 				nls.builtins.formatting.blade_formatter,
 				nls.builtins.formatting.markdownlint,
+				nls.builtins.formatting.sql_formatter,
 			},
 		}
 	end,

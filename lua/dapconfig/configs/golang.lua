@@ -16,7 +16,8 @@
   delve = {
     -- the path to the executable dlv which will be used for debugging.
     -- by default, this is the "dlv" executable on your PATH.
-    path = "/home/luis/go/bin/dlv",
+    --path = "/home/luis/go/bin/dlv",
+    path = "/home/luis/.local/share/nvim/mason/bin",
     -- time to wait for delve to initialize the debug session.
     -- default to 20 seconds
     initialize_timeout_sec = 20,

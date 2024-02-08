@@ -22,27 +22,8 @@ for _, language in ipairs({ "typescript", "javascript" }) do
 		},
 	}
 end
----deno
-for _, language in ipairs({ "typescript", "javascript" }) do
-	require("dap").configurations[language] = {
-		{
-			type = "pwa-node",
-			request = "launch",
-			name = "Launch file",
-			runtimeExecutable = "deno",
-			runtimeArgs = {
-				"run",
-				"--inspect-wait",
-				"--allow-all",
-			},
-			program = "${file}",
-			cwd = "${workspaceFolder}",
-			attachSimplePort = 9229,
-		},
-	}
-end
----chrome browser
 
+--chrome browser
 for _, language in ipairs({ "typescriptreact", "javascriptreact" }) do
 	require("dap").configurations[language] = {
 		{
@@ -64,3 +45,27 @@ for _, language in ipairs({ "typescriptreact", "javascriptreact" }) do
 		},
 	}
 end
+
+---deno
+--[[
+-for _, language in ipairs({ "typescript", "javascript" }) do
+	require("dap").configurations[language] = {
+		{
+			type = "pwa-node",
+			request = "launch",
+			name = "Launch file",
+			runtimeExecutable = "deno",
+			runtimeArgs = {
+				"run",
+				"--inspect-wait",
+				"--allow-all",
+			},
+			program = "${file}",
+			cwd = "${workspaceFolder}",
+			attachSimplePort = 9229,
+		},
+	}
+  end
+--]]
+
+

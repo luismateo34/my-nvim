@@ -55,12 +55,13 @@ local servers = {
 	"astro",
 	"html",
 	"pyright",
-	"sqlls",
 	"jsonls",
 	"tsserver",
 	"prismals",
-        "yamlls",
+   "yamlls",
+	 "sqlls",
 	"golangci_lint_ls",
+	"gopls",
 }
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup({
@@ -77,5 +78,4 @@ nvim_lsp.tailwindcss.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
-
 
