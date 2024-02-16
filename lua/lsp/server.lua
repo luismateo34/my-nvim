@@ -60,6 +60,8 @@ local servers = {
 	 "sqlls",
 	"golangci_lint_ls",
 	"gopls",
+	"tsserver",
+	"jsonls",
 }
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup({
@@ -76,9 +78,4 @@ nvim_lsp.tailwindcss.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
-nvim_lsp.volar.setup({
-filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue','json'},
-	on_attach = on_attach,
-	capabilities = capabilities,
-	})
 
