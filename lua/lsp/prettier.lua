@@ -16,6 +16,6 @@ prettier.setup({
 		"typescriptreact",
 		"astro",
 		"yaml",
-		"svelte", 
+		"svelte",
 	},
 })
