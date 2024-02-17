@@ -62,6 +62,7 @@ local servers = {
 	"gopls",
 	"tsserver",
 	"jsonls",
+	"volar",
 }
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup({
