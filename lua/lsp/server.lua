@@ -60,9 +60,9 @@ local servers = {
 	"sqlls",
 	"golangci_lint_ls",
 	"gopls",
-	"tsserver",
 	"jsonls",
 	"volar",
+	"tailwindcss",
 }
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup({
@@ -72,10 +72,18 @@ for _, lsp in ipairs(servers) do
 end
 nvim_lsp.intelephense.setup({
 	on_attach = on_attach,
+	capabilities = capabilities,
 	flags = lsp_flags,
 })
 
-nvim_lsp.tailwindcss.setup({
+nvim_lsp.tsserver.setup {
+	-- Omitting some options
 	on_attach = on_attach,
 	capabilities = capabilities,
-})
+}
+--nvim_lsp.denols.setup {
+--on_attach = on_attach,
+--capabilities = capabilities,
+--root_dir = nvim_lsp.util.root_pattern("deno.json"),
+
+--}

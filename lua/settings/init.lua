@@ -4,3 +4,4 @@ require("settings.aleConfig")
 require("settings.ultisnips")
 require("settings.blade-treesitter")
 require("settings.mdx")
+

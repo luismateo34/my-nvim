@@ -9,8 +9,9 @@ let g:ale_linters_explicit   =   1
 let g:ale_fix_on_save = 0
 let g:ale_lint_on_save = 1
 
-let g:ale_linter_aliases = {'vue': ['typescript', 'javascript']}
-let g:ale_linter_aliases = {'svelte': ['typescript', 'javascript']}
+let g:ale_linter_aliases = {'vue': ['typescript', 'javascript','javascriptreact','typescriptreact']}
+let g:ale_linter_aliases = {'svelte': ['typescript', 'javascript','javascriptreact','typescriptreact']}
+let g:ale_linter_aliases = {'astro': ['typescript', 'javascript','javascriptreact','typescriptreact']}
 
 let g:ale_linters =  {
  \     'javascript'  :   [  'eslint'  ],
@@ -19,6 +20,7 @@ let g:ale_linters =  {
 \       'typescriptreact':  ['eslint'],
  \     'svelte' : ['eslint'],
  \     'vue' : ['eslint'],
+ \     'astro' : ['eslint'],
  \  }
 
 ]])
