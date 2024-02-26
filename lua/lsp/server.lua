@@ -57,12 +57,11 @@ local servers = {
 	"pyright",
 	"prismals",
 	"yamlls",
-	"sqlls",
 	"golangci_lint_ls",
 	"gopls",
+	"tailwindcss",
 	"jsonls",
 	"volar",
-	"tailwindcss",
 }
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup({
@@ -76,14 +75,27 @@ nvim_lsp.intelephense.setup({
 	flags = lsp_flags,
 })
 
-nvim_lsp.tsserver.setup {
-	-- Omitting some options
+nvim_lsp.tsserver.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
-}
---nvim_lsp.denols.setup {
+})
+--nvim_lsp.denols.setup({
 --on_attach = on_attach,
 --capabilities = capabilities,
 --root_dir = nvim_lsp.util.root_pattern("deno.json"),
 
---}
+--})
+
+
+------
+--rust analizer config
+------
+--local rt = require("rust-tools")
+--rt.setup({
+  --server = {
+		--on_attach = on_attach,
+	--capabilities = capabilities,
+
+     --},
+--})
+--nvim_lsp.rust_analyzer.setup({})
