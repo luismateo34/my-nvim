@@ -31,7 +31,6 @@ vim.cmd("set diffopt+=vertical")
 vim.cmd("set nobackup")
 vim.cmd("set nowritebackup")
 vim.cmd("colorscheme tokyonight-moon")
---[[vim.cmd('au BufNewFile,BufRead *.html set filetype=htmldjango')]]
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	callback = function()
 		vim.cmd([[%s/\s\+$//e]])
