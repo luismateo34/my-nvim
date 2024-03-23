@@ -3,7 +3,7 @@ local lspkind = require("lspkind")
 local luasnip = require("luasnip")
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 local compare = require("cmp.config.compare")
-
+require("completition.blade.init")
 
 local function formatForTailwindCSS(entry, vim_item)
 	if vim_item.kind == "Color" and entry.completion_item.documentation then
@@ -60,6 +60,7 @@ function M.setup()
 			{ name = "path" },
 			{ name = "luasnip" },
 			{ name = "nvim_lua" },
+			{ name = "codeium" },
 			--{ name = "buffer",  keyword_length = 4 },
 			{
 				name = "buffer",
@@ -92,13 +93,14 @@ function M.setup()
 					vim_item = formatForTailwindCSS(entry, vim_item)
 					return vim_item
 				end,
-				--menu = {
-				--buffer = "[buf]",
-				----nvim_lsp = "[ ]",
-				--nvim_lua = "[api]",
-				--path = "[path]",
-				--luasnip = "[snip]",
-				--},
+				menu = {
+				buffer = "[buf]",
+				nvim_lsp = "[ ]",
+				nvim_lua = "[api]",
+				path = "[path]",
+				luasnip = "[snip]",
+				Codeium = "", 
+				},
 			}),
 		},
 

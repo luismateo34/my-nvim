@@ -13,12 +13,14 @@ return {
 	keys = { { "<leader>d", desc = " Open debug menu " } },
 	config = function()
 		require("dapconfig")
-		local ok_telescope, telescope = pcall(require, "telescope")
+		local  telescope = require "telescope"
+		local ok_telescope = require "telescope"
 		if ok_telescope then
 			telescope.load_extension("dap")
 		end
 
-		local ok_cmp, cmp = pcall(require, "cmp")
+		local ok_cmp = require "cmp"
+		local  cmp = require "cmp"
 		if ok_cmp then
 			cmp.setup.filetype({ "dap-repl", "dapui_watches" }, {
 				sources = cmp.config.sources({

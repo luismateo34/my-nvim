@@ -18,6 +18,6 @@ return {
 	},
 	cmd = { "Prettier" },
 	config = function()
-		require("lsp.prettier")
+		require("settings.prettier")
 	end,
 }

@@ -10,7 +10,10 @@ parser_config.blade = {
 
 vim.filetype.add({
 	extension = {
-		blade = "bade.php",
+		blade = "blade",
 	},
 })
 vim.treesitter.language.register("blade.php", "blade")
+        require("nvim-treesitter.configs")
+
+

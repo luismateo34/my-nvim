@@ -12,7 +12,7 @@ return {
 	"editorconfig/editorconfig-vim",
 	--other
 	"easymotion/vim-easymotion", --provides a much simpler way to use some motions in vim.
-	"yggdroot/indentline",
+	--"yggdroot/indentline",
 	"scrooloose/nerdcommenter",
 	"tpope/vim-repeat", -- repeat comand inside that map
 	--- manage global and project-local settings
