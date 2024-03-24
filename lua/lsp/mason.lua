@@ -18,7 +18,6 @@ mason_lspconfig.setup({
 		"yamlls",
 		"golangci_lint_ls",
 		"gopls",
-		"volar",
 		"jsonls",
 		"phpactor"
 	},
