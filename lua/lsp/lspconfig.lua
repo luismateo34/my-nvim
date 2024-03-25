@@ -27,21 +27,19 @@ for _, lsp in ipairs(servers) do
 		flags = lsp_flags,
 	})
 end
---local vue_language_server_path = "/home/luis/.local/share/nvim/mason/bin/vue-language-server"
-local vue_language_server_path = vim.fn.stdpath("data") .."/mason/bin/vue-languaje-server"
 
-nvim_lsp.tsserver.setup {
-  init_options = {
-    plugins = {
-      {
-        name = '@vue/typescript-plugin',
-        location = vue_language_server_path,
-        languages = { 'vue' },
-      },
-    },
-  },
-  filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
-}
+nvim_lsp.tsserver.setup{
+	init_options = {
+		plugins = {
+			{
+				name = "@vue/typescript-plugin",
+				location = "/usr/lib/node_modules/@vue/typescript-plugin",
+				languages = { "vue"},
+			},
+		},
+	},
+	filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+	}
 
 --nvim_lsp.intelephense.setup({
 	--on_attach = on_attach,
@@ -53,13 +51,11 @@ nvim_lsp.tsserver.setup {
               --},
 --})
 
-
 nvim_lsp.html.setup({
 on_attach = on_attach,
 capabilities = capabilities,
 filetypes = {"html", "blade" },
 })
-
 
 --nvim_lsp.denols.setup({
 --on_attach = on_attach,
