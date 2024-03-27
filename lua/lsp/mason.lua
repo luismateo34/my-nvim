@@ -19,7 +19,8 @@ mason_lspconfig.setup({
 		"golangci_lint_ls",
 		"gopls",
 		"jsonls",
-		"phpactor"
+		"phpactor",
+		"intelephense"
 	},
 	automatic_installation = true, -- not the same as ensure_installed
 })
@@ -30,6 +31,7 @@ mason_null_ls.setup({
 		"phpcs",
 		"blade_formatter",
 		"markdownlint",
+		"prettier"
 	},
 	automatic_installation = true,
 })

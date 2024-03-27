@@ -41,15 +41,15 @@ nvim_lsp.tsserver.setup{
 	filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
 	}
 
---nvim_lsp.intelephense.setup({
-	--on_attach = on_attach,
-	--capabilities = capabilities,
-	--filetypes = { "php", "blade" },
-	 --files = {
-                --associations = { "*.php", "blade" }, -- Associating .blade.php files as well
-                --maxSize = 5000000,
-              --},
---})
+nvim_lsp.intelephense.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	filetypes = { "php", "blade" },
+	 files = {
+								associations = { "*.php", "blade" }, -- Associating .blade.php files as well
+								maxSize = 5000000,
+							},
+})
 
 nvim_lsp.html.setup({
 on_attach = on_attach,
