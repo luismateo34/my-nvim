@@ -19,6 +19,7 @@ local servers = {
 	"tailwindcss",
 	"jsonls",
 	"volar",
+	"tsserver",
 }
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup({
@@ -28,18 +29,18 @@ for _, lsp in ipairs(servers) do
 	})
 end
 
-nvim_lsp.tsserver.setup{
-	init_options = {
-		plugins = {
-			{
-				name = "@vue/typescript-plugin",
-				location = "/usr/lib/node_modules/@vue/typescript-plugin",
-				languages = { "vue"},
-			},
-		},
-	},
-	filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
-	}
+--nvim_lsp.tsserver.setup{
+	--init_options = {
+		--plugins = {
+			--{
+				--name = "@vue/typescript-plugin",
+				--location = "/usr/lib/node_modules/@vue/typescript-plugin",
+				--languages = { "vue"},
+			--},
+		--},
+	--},
+	--filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+	--}
 
 nvim_lsp.intelephense.setup({
 	on_attach = on_attach,
