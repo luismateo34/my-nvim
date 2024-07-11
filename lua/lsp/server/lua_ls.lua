@@ -1,5 +1,5 @@
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local on_attach = require("lsp.attach")
+local on_attach = require("keymap.lsp.attach")
 local nvim_lsp = require("lspconfig")
 
 

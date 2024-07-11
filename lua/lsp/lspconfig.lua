@@ -1,4 +1,4 @@
-local on_attach = require("lsp.attach")
+local on_attach = require("keymap.lsp.attach")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local nvim_lsp = require("lspconfig")
 local lsp_flags = {
@@ -30,32 +30,32 @@ for _, lsp in ipairs(servers) do
 end
 
 --nvim_lsp.tsserver.setup{
-	--init_options = {
-		--plugins = {
-			--{
-				--name = "@vue/typescript-plugin",
-				--location = "/usr/lib/node_modules/@vue/typescript-plugin",
-				--languages = { "vue"},
-			--},
-		--},
-	--},
-	--filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
-	--}
+--init_options = {
+--plugins = {
+--{
+--name = "@vue/typescript-plugin",
+--location = "/usr/lib/node_modules/@vue/typescript-plugin",
+--languages = { "vue"},
+--},
+--},
+--},
+--filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+--}
 
 nvim_lsp.intelephense.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	filetypes = { "php", "blade" },
-	 files = {
-								associations = { "*.php", "blade" }, -- Associating .blade.php files as well
-								maxSize = 5000000,
-							},
+	files = {
+		associations = { "*.php", "blade" }, -- Associating .blade.php files as well
+		maxSize = 5000000,
+	},
 })
 
 nvim_lsp.html.setup({
-on_attach = on_attach,
-capabilities = capabilities,
-filetypes = {"html", "blade" },
+	on_attach = on_attach,
+	capabilities = capabilities,
+	filetypes = { "html", "blade" },
 })
 
 --nvim_lsp.denols.setup({

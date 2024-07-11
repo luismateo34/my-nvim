@@ -15,8 +15,8 @@ end
 function M.branches()
   require("telescope.builtin").git_branches {
     attach_mappings = function(_, map)
-      map("i", "<c-j>", actions.git_create_branch)
-      map("n", "<c-j>", actions.git_create_branch)
+      map("i", "<A-b>", actions.git_create_branch)
+      map("n", "<A-b>", actions.git_create_branch)
       return true
     end,
   }
@@ -74,7 +74,7 @@ function M.file_browser(opts)
     },
 
     attach_mappings = function(_, map)
-      map("i", "<c-y>", fb_actions.create_from_prompt)
+      map("i", "<A-y>", fb_actions.create_from_prompt)
 
       return true
     end,
