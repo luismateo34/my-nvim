@@ -10,7 +10,7 @@ mason_lspconfig.setup({
 		"tailwindcss",
 		"lua_ls",
 		"mdx_analyzer",
-		"svelte",
+		--"svelte",
 		"dockerls",
 		"astro",
 		"pyright",

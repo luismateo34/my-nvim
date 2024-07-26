@@ -1,8 +1,6 @@
 return {
 	--css utilities
 	"norcalli/nvim-colorizer.lua",
-	--lorem ipsum generator
-	"derektata/lorem.nvim",
 	--snippets
 	"mattn/emmet-vim",
 	"sirver/ultisnips",

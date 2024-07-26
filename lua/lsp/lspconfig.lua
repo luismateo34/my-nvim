@@ -8,7 +8,7 @@ local lsp_flags = {
 local servers = {
 	"cssls",
 	"mdx_analyzer",
-	"svelte",
+	--"svelte",
 	"dockerls",
 	"astro",
 	"pyright",
@@ -29,13 +29,13 @@ for _, lsp in ipairs(servers) do
 	})
 end
 
---nvim_lsp.tsserver.setup{
+--nvim_lsp.tsserver.setup {
 --init_options = {
 --plugins = {
 --{
 --name = "@vue/typescript-plugin",
 --location = "/usr/lib/node_modules/@vue/typescript-plugin",
---languages = { "vue"},
+--languages = { "vue" },
 --},
 --},
 --},
@@ -59,9 +59,9 @@ nvim_lsp.html.setup({
 })
 
 --nvim_lsp.denols.setup({
---on_attach = on_attach,
---capabilities = capabilities,
---root_dir = nvim_lsp.util.root_pattern("deno.json"),
+	--on_attach = on_attach,
+	--capabilities = capabilities,
+	--root_dir = nvim_lsp.util.root_pattern("deno.json"),
 
 --})
 
