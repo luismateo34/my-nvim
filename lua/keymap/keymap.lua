@@ -10,7 +10,7 @@ map("n", "<leader>>", ":10<C-w>>", { noremap = true })
 -- nvimtree shortcut
 map("n", "<leader>n", ":NvimTreeFindFileToggle<CR>", { noremap = true })
 --<buffer>
-map("n", "<leader>bu", ":buffers<CR>", { noremap = true })
+map("n", "<leader>bf", ":buffers<CR>", { noremap = true })
 --keeping it centered
 map("n", "n", "nzzzv", { noremap = true })
 map("n", "N", "Nzzzv", { noremap = true })

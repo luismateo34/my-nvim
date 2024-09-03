@@ -14,4 +14,4 @@ require("completition.blade.php")
 require("completition.blade.TemplateInheritance")
 require("completition.blade.form")
 require("completition.blade.injectandfragment")
-
+require("completition.blade.vite")

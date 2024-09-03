@@ -6,16 +6,16 @@ local text = ls.text_node
 
 
 ls.add_snippets("blade", {
-snip({
+	snip({
 		trig = "@class",
 		namr = "class",
 		dscr = " class conditional html ",
 	}, text("@class([])")),
-snip({
-	trig = "@style",
-	namr = "style",
-	dscr = "style conditional ])" 
-	},
-text("@style([ ])")
+	snip({
+			trig = "@style",
+			namr = "style",
+			dscr = "style conditional "
+		},
+		text("@style([ ])")
 	)
-	})
+})
