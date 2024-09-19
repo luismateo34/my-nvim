@@ -18,8 +18,8 @@ local servers = {
 	"gopls",
 	"tailwindcss",
 	"jsonls",
-	"volar",
 	"tsserver",
+	"angularls",
 }
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup({
@@ -41,6 +41,15 @@ end
 --},
 --filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
 --}
+nvim_lsp.volar.setup {
+	init_options = {
+		typescript = {
+			tsdk = '/home/luis/.local/share/nvim/mason/packages/typescript-language-server/node_modules/typescript-language-server/lib/'
+			-- Alternative location if installed as root:
+			-- tsdk = '/usr/local/lib/node_modules/typescript/lib'
+		}
+	}
+}
 
 nvim_lsp.intelephense.setup({
 	on_attach = on_attach,
