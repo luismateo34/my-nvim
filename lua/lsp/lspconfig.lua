@@ -19,7 +19,6 @@ local servers = {
 	"tailwindcss",
 	"jsonls",
 	"tsserver",
-	"angularls",
 }
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup({
@@ -71,7 +70,6 @@ nvim_lsp.html.setup({
 --on_attach = on_attach,
 --capabilities = capabilities,
 --root_dir = nvim_lsp.util.root_pattern("deno.json"),
-
 --})
 
 

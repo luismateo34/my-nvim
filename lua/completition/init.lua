@@ -61,7 +61,7 @@ function M.setup()
 			{ name = "luasnip" },
 			{ name = "nvim_lua" },
 			{ name = "codeium" },
-			--{ name = "buffer",  keyword_length = 4 },
+			{ name = "buffer",  keyword_length = 4 },
 			{
 				name = "buffer",
 				keyword_length = 4,
@@ -94,12 +94,12 @@ function M.setup()
 					return vim_item
 				end,
 				menu = {
-				buffer = "[buf]",
-				nvim_lsp = "[ ]",
-				nvim_lua = "[api]",
-				path = "[path]",
-				luasnip = "[snip]",
-				Codeium = "", 
+					buffer = "[buf]",
+					nvim_lsp = "[ ]",
+					nvim_lua = "[api]",
+					path = "[path]",
+					luasnip = "[snip]",
+					Codeium = "",
 				},
 			}),
 		},
