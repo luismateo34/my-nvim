@@ -61,7 +61,7 @@ function M.setup()
 			{ name = "luasnip" },
 			{ name = "nvim_lua" },
 			{ name = "codeium" },
-			{ name = "buffer",  keyword_length = 4 },
+			--{ name = "buffer",  keyword_length = 4 },
 			{
 				name = "buffer",
 				keyword_length = 4,
