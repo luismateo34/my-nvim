@@ -30,6 +30,8 @@ vim.cmd("set signcolumn=yes")
 vim.cmd("set diffopt+=vertical")
 vim.cmd("set nobackup")
 vim.cmd("set nowritebackup")
+--vim.tbl_add_reverse_lookup
+
 -- color settings
 require('onedark').load()
 --vim.cmd("colorscheme tokyonight-moon")

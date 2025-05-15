@@ -21,7 +21,6 @@ return {
 			event = { "BufReadPre", "BufNewFile" },
 			dependencies = {
 				"williamboman/mason.nvim",
-				"jose-elias-alvarez/null-ls.nvim",
 			},
 		},
 		"williamboman/mason-lspconfig.nvim",

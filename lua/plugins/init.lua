@@ -3,7 +3,6 @@ return {
 	"norcalli/nvim-colorizer.lua",
 	--snippets
 	"mattn/emmet-vim",
-	"sirver/ultisnips",
 	--testing
 	"vim-test/vim-test",
 	--ide

@@ -4,7 +4,7 @@ local mason_null_ls = require("mason-null-ls")
 mason.setup()
 mason_lspconfig.setup({
 	ensure_installed = {
-		"tsserver",
+		"ts_ls",
 		"html",
 		"cssls",
 		"tailwindcss",
