@@ -23,6 +23,7 @@ return {
 			"typescript",
 			"tsx",
 			"vim",
+                        "vimdoc",
 			"yaml",
 			"php",
 			"regex",
@@ -30,6 +31,10 @@ return {
 			"sql",
 			"blade",
 			"php_only",
+                        "python",
+
+
+
 		},
 		highlight = {
 			enable = true,

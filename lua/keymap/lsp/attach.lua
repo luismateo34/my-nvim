@@ -9,9 +9,10 @@ return function(bufnr)
 				vim.lsp.buf.hover,
 				{ buffer = 0, desc = "LSP Help information of symbol under the cursor" }
 			)
+			vim.diagnostic.get_next()
 			vim.keymap.set("n", "<leader>vo", ":LspRestart<cr>", { noremap = true, desc = "LSP Restart Server" })
-			vim.keymap.set("n", "<leader>vn", vim.diagnostic.goto_next, { desc = "Goes to next diagnostic error" })
-			vim.keymap.set("n", "<leader>vp", vim.diagnostic.goto_prev, { desc = "Goes to prev diagnostic error" })
+			vim.keymap.set("n", "<leader>vn", vim.diagnostic.get_next, { desc = "Get to next diagnostic " })
+			vim.keymap.set("n", "<leader>vp", vim.diagnostic.get_prev, { desc = "Goes to prev diagnostic" })
 			vim.keymap.set("n", "<leader>dc", vim.lsp.buf.declaration, { noremap = true, desc = "declaration function" })
 			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { noremap = true, desc = "definition function" })
 			vim.keymap.set("n", "<leader>ho", vim.lsp.buf.hover, { buffer = 0, noremap = true, desc = "hover" })
