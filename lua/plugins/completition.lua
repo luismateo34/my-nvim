@@ -10,7 +10,7 @@ return {
 		"onsails/lspkind-nvim", -- vscode-like pictograms
 		"saadparwaiz1/cmp_luasnip",
 		"onsails/lspkind-nvim",
-		{ "L3MON4D3/LuaSnip", version = "v1.*" },
+		{ "L3MON4D3/LuaSnip", version = "v2.*" },
 	},
 	event = "VeryLazy",
 	main = "completition",

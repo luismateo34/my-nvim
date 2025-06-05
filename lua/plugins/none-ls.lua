@@ -13,6 +13,7 @@ return {
 						null_ls.builtins.formatting.phpcsfixer,
 						null_ls.builtins.formatting.blade_formatter,
 						null_ls.builtins.formatting.markdownlint,
+						null_ls.builtins.diagnostics.golangci_lint,
 						--null_ls.builtins.formatting.sql_formatter,
 					},
 				})

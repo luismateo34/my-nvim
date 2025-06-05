@@ -10,7 +10,6 @@ mason_lspconfig.setup({
 		"tailwindcss",
 		"lua_ls",
 		"mdx_analyzer",
-		--"svelte",
 		"dockerls",
 		"astro",
 		"pyright",
@@ -29,9 +28,10 @@ mason_null_ls.setup({
 		"stylua",
 		"phpcsfixer",
 		"phpcs",
-		"blade_formatter",
+		"blade-formatter",
 		"markdownlint",
-		"prettier"
+		"prettier",
+		"golangci-lint",
 	},
 	automatic_installation = true,
 })
