@@ -5,19 +5,13 @@ local lsp_flags = {
 }
 local nvim_lsp = vim.lsp.config
 
-nvim_lsp['luals'] = {
-	cmd = { 'lua-language-server' },
+nvim_lsp['intelephense'] = {
+        cmd = { "intelephense", "--stdio" },
 	on_attach = on_attach,
 	capabilities = capabilities,
 	lsp_flags = lsp_flags,
-	filetypes = { 'lua' },
-	--root_markers = { { '.luarc.json', '.luarc.jsonc' }, '.git' },
-	settings = {
-		Lua = {
-			runtime = {
-				version = 'LuaJIT',
-			}
-		}
-	}
+	filetypes = {"php" },
+        root_markers = { ".git", "composer.json" },
+
 }
-vim.lsp.enable('luals')
+vim.lsp.enable('intelephense')

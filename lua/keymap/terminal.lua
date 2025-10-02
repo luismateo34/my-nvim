@@ -3,9 +3,8 @@ local function split_term()
 	local currentBuff = vim.api.nvim_buf_get_name(0)
 	local term = string.sub(currentBuff, 1, 4)
 	local Isterm = term == "term"
-	print(Isterm)
 	vim.opt.splitright = true
-
+  --teclea enter desde codigo lua
 	local cr = vim.api.nvim_replace_termcodes("<CR>", true, true, true)
 	--vim.opt.splitbelow = true
 	if Isterm then

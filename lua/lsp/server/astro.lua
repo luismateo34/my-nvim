@@ -5,19 +5,13 @@ local lsp_flags = {
 }
 local nvim_lsp = vim.lsp.config
 
-nvim_lsp['luals'] = {
-	cmd = { 'lua-language-server' },
+nvim_lsp['astro'] = {
+         cmd={ "astro-ls", "--stdio" },
 	on_attach = on_attach,
 	capabilities = capabilities,
 	lsp_flags = lsp_flags,
-	filetypes = { 'lua' },
-	--root_markers = { { '.luarc.json', '.luarc.jsonc' }, '.git' },
-	settings = {
-		Lua = {
-			runtime = {
-				version = 'LuaJIT',
-			}
-		}
-	}
+	filetypes = {"astro"},
+        root_markers = { "package.json", "tsconfig.json", "jsconfig.json", ".git" }
+
 }
-vim.lsp.enable('luals')
+vim.lsp.enable('astro')

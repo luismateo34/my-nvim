@@ -18,7 +18,7 @@ prettier.setup({
 		"yaml",
 		"svelte",
 	},
-	  ["null-ls"] = {
+	  ["none-ls"] = {
     condition = function()
       return prettier.config_exists({
         -- if `false`, skips checking `package.json` for `"prettier"` key

@@ -1,14 +1,13 @@
-local nvim_lsp = require("lspconfig")
-local util = require 'lspconfig.util'
-
+local util = vim.lsp.util
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local lsp_flags = {
 	debounce_text_changes = 150,
 }
 local on_attach = require("lsp.attach")
 
+local nvim_lsp = vim.lsp.config
 
-nvim_lsp.phpactor.setup({
+  nvim_lsp["phpactor"]= {
 	on_attach = on_attach,
 	flags = lsp_flags,
 	capabilities = capabilities,
@@ -37,4 +36,4 @@ nvim_lsp.phpactor.setup({
       -- prefer cwd if root is a descendant
       return util.path.is_descendant(cwd, root) and cwd or root
     end,
-})
+}

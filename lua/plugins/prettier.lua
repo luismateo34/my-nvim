@@ -1,5 +1,9 @@
 return {
 	"MunifTanjim/prettier.nvim",
+
+	dependencies = {
+		'neovim/nvim-lspconfig',
+	},
 	ft = {
 		"css",
 		"graphql",

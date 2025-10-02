@@ -4,7 +4,6 @@ return {
 	cmd = { "PhpActor" },
 	dependencies = {
 		"nvim-lua/plenary.nvim", -- required to update phpactor
-		"neovim/nvim-lspconfig" -- required to automaticly register lsp serveur
 	},
 	opts = {
 		install = {

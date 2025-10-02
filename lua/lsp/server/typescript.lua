@@ -5,19 +5,12 @@ local lsp_flags = {
 }
 local nvim_lsp = vim.lsp.config
 
-nvim_lsp['luals'] = {
-	cmd = { 'lua-language-server' },
+nvim_lsp['ts_ls'] = {
+         cmd={ "typescript-language-server", "--stdio"},
 	on_attach = on_attach,
 	capabilities = capabilities,
 	lsp_flags = lsp_flags,
-	filetypes = { 'lua' },
-	--root_markers = { { '.luarc.json', '.luarc.jsonc' }, '.git' },
-	settings = {
-		Lua = {
-			runtime = {
-				version = 'LuaJIT',
-			}
-		}
-	}
+	filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" }
+
 }
-vim.lsp.enable('luals')
+vim.lsp.enable('ts_ls')

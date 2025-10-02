@@ -5,19 +5,13 @@ local lsp_flags = {
 }
 local nvim_lsp = vim.lsp.config
 
-nvim_lsp['luals'] = {
-	cmd = { 'lua-language-server' },
+nvim_lsp[ "laravel_ls"] = {
+        cmd = { "laravel-ls" },
 	on_attach = on_attach,
 	capabilities = capabilities,
 	lsp_flags = lsp_flags,
-	filetypes = { 'lua' },
-	--root_markers = { { '.luarc.json', '.luarc.jsonc' }, '.git' },
-	settings = {
-		Lua = {
-			runtime = {
-				version = 'LuaJIT',
-			}
-		}
-	}
+	filetypes = { "php", "blade" },
+        root_markers = { "artisan" },
+
 }
-vim.lsp.enable('luals')
+vim.lsp.enable('laravel_ls')

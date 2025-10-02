@@ -43,7 +43,7 @@ vim.cmd("set nowritebackup")
 
 -- color settings
 require('onedark').load()
---vim.cmd("colorscheme tokyonight-moon")
+--vim.cmd("colorscheme torte")
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	callback = function()
 		vim.cmd([[%s/\s\+$//e]])

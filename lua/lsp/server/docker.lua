@@ -5,19 +5,23 @@ local lsp_flags = {
 }
 local nvim_lsp = vim.lsp.config
 
-nvim_lsp['luals'] = {
-	cmd = { 'lua-language-server' },
+nvim_lsp['dockerls'] = {
+	cmd = { "docker-langserver", "--stdio" },
 	on_attach = on_attach,
 	capabilities = capabilities,
 	lsp_flags = lsp_flags,
-	filetypes = { 'lua' },
-	--root_markers = { { '.luarc.json', '.luarc.jsonc' }, '.git' },
+	filetypes = { "dockerfile" },
+	root_markers = { "Dockerfile" },
 	settings = {
-		Lua = {
-			runtime = {
-				version = 'LuaJIT',
-			}
-		}
+		docker = {
+			languageserver = {
+				formatter = {
+					ignoreMultilineInstructions = true,
+				},
+			},
+		},
+
+
 	}
 }
-vim.lsp.enable('luals')
+vim.lsp.enable('dockerls')
