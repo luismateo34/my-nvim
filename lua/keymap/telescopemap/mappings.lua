@@ -39,7 +39,7 @@ map("n", "<leader>bp", function ()
 	F.file_browser()
 end , { desc = "Project directory" })
 
-map("n", "<Alt>rf", function ()
-	F.refactor()
-end, { noremap = true })
+--map("n", "<leader><leader>r", function ()
+	--F.refactor()
+--end, { noremap = true })
 

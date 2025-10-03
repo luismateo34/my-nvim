@@ -9,7 +9,7 @@ saga.setup({
 	},
 })
 
-local diagnostic = require("lspsaga.diagnostic")
+--local diagnostic = require("lspsaga.diagnostic")
 local opts = { noremap = true, silent = true }
 vim.keymap.set("n", "<C-a>", "<Cmd>Lspsaga diagnostic_jump_next<CR>", opts)
 vim.keymap.set("n", "gl", "<Cmd>Lspsaga show_line_diagnostics<CR>", opts)
@@ -22,11 +22,11 @@ vim.keymap.set("n", "lp", "<Cmd>Lspsaga peek_definition<CR>", opts)
 vim.keymap.set("n", "gr", "<Cmd>Lspsaga rename<CR>", opts)
 
 -- code action
-local codeaction = require("lspsaga.codeaction")
-vim.keymap.set("n", "<leader>ca", function()
-	codeaction:code_action()
-end, { silent = true })
-vim.keymap.set("v", "<leader>ca", function()
-	vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<C-U>", true, false, true))
-	codeaction:range_code_action()
-end, { silent = true })
+--local codeaction = require("lspsaga.codeaction")
+--vim.keymap.set("n", "<leader>ca", function()
+	--codeaction:code_action()
+--end, { silent = true })
+--vim.keymap.set("v", "<leader>ca", function()
+	--vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<C-U>", true, false, true))
+	--codeaction:range_code_action()
+--end, { silent = true })
