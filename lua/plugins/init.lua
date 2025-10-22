@@ -3,8 +3,6 @@ return {
 	"norcalli/nvim-colorizer.lua",
 	--snippets
 	"mattn/emmet-vim",
-	--testing
-	"vim-test/vim-test",
 	--ide
 	"editorconfig/editorconfig-vim",
 	--other
@@ -12,8 +10,6 @@ return {
 	--"yggdroot/indentline",
 	"scrooloose/nerdcommenter",
 	"tpope/vim-repeat", -- repeat comand inside that map
-	--- manage global and project-local settings
-	"folke/neoconf.nvim",
 	--git
 	"mhinz/vim-signify", --git column
 }

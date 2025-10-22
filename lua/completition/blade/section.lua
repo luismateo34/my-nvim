@@ -6,16 +6,16 @@ local fmt = require("luasnip.extras.fmt").fmt
 
 
 ls.add_snippets("blade", {
-		snip({
+	snip({
 		trig = "@hasSection",
 		namr = "hasSection",
 		dscr = "You may determine if a template inheritance section has content using the @hasSection directive",
 	}, fmt([[
        @hasSection()
-        {} 
+        {}
        @endif
 	]],
-   {
+		{
 			insert(1),
 		}
 	)),
@@ -28,7 +28,7 @@ ls.add_snippets("blade", {
 			 {}
        @endif
 	]],
-   {
+		{
 			insert(1),
 		}
 	))

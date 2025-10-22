@@ -11,21 +11,15 @@ map("n", "<leader>>", ":10<C-w>>", { noremap = true })
 map("n", "<leader>n", ":NvimTreeFindFileToggle<CR>", { noremap = true })
 --<buffer>
 map("n", "<leader>bf", ":buffers<CR>", { noremap = true })
---keeping it centered
-map("n", "n", "nzzzv", { noremap = true })
-map("n", "N", "Nzzzv", { noremap = true })
-map("n", "J", "mzJ`z", { noremap = true })
 --Moving text
 map("v", "J", ":m '>+1<CR>gv=gv", { noremap = true })
 map("v", "K", ":m '<-2<CR>gv=gv", { noremap = true })
 map("n", "<leader>k", ":m .-2<CR>==", { noremap = true })
 map("n", "<leader>j", ":m .+1<CR>==", { noremap = true })
---git add %
+--git
 map("n", "<A-g>", ":Git add %<cr>", { noremap = true })
 --prettier
 map("n", "<leader>p", ":Prettier<CR>", { noremap = true })
---formater
---map("n", "<leader>ft", ":lua vim.lsp.buf.format()<CR>", { noremap = true })
 --rest.nvim
 --map("n", "<A-r>", ":lua require('rest-nvim').run()<CR>", { noremap = true })
 --map("n", "<A-l>", ":lua require('rest-nvim').last(true)<CR>", { noremap = true })

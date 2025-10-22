@@ -19,11 +19,11 @@ return {
 			"lua",
 			"markdown",
 			"markdown_inline",
-			"rust",
+			--"rust",
 			"typescript",
 			"tsx",
 			"vim",
-                        "vimdoc",
+			"vimdoc",
 			"yaml",
 			"php",
 			"regex",
@@ -31,7 +31,7 @@ return {
 			"sql",
 			"blade",
 			"php_only",
-                        "python",
+			"python",
 
 
 
@@ -77,22 +77,22 @@ return {
 		},
 	},
 	config = function(plug, config)
-    local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
-    parser_config.blade = {
-      install_info = {
-        url = "https://github.com/EmranMR/tree-sitter-blade",
-        files = {"src/parser.c"},
-        branch = "main",
-      },
-      filetype = "blade"
-    }
+		local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+		parser_config.blade = {
+			install_info = {
+				url = "https://github.com/EmranMR/tree-sitter-blade",
+				files = { "src/parser.c" },
+				branch = "main",
+			},
+			filetype = "blade"
+		}
 
-    vim.filetype.add({
-      pattern = {
-        ['.*%.blade%.php'] = 'blade',
-      }
-    })
+		vim.filetype.add({
+			pattern = {
+				['.*%.blade%.php'] = 'blade',
+			}
+		})
 
-    require(plug.main).setup(config);
-  end,
+		require(plug.main).setup(config);
+	end,
 }

@@ -43,10 +43,10 @@ return {
 			"yamlls",
 			"golangci_lint_ls",
 			"gopls",
-			"jsonls",
+			--"jsonls",
 			"laravel_ls",
-			--"phpactor",
-			"intelephense"
+			"phpactor",
+			--"intelephense"
 		}
 		lsp.setup({ ensure_installed = ensure_installed, automatic_installation = true })
 		--------------------------------
